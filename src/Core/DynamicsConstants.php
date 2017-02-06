@@ -30,6 +30,7 @@ class DynamicsConstants
     const MAX_ODATA_VERSION = "4.0";
     const ODATA_VERSION = "4.0";
 
+    // Default ODATA Paging
     const ODATA_MAX_PAGE_SIZE_HEADER = "Prefer";
     const ODATA_MAX_PAGE_SIZE_DEFAULT = "odata.maxpagesize=25";
 
