@@ -1,0 +1,31 @@
+{
+    "name": "saintsystems/dynamics-sdk-php",
+    "version": "0.1.0",
+    "description": "Saint Systems Microsoft Dynamics 365 SDK for PHP",
+    "keywords": ["crm", "dynamics", "dynamics crm", "sdk"],
+    "homepage": "https://github.com/saintsystems/dynamics-sdk-php",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Saint Systems",
+            "email": "contact@saintsystems.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0",
+        "phpdocumentor/phpdocumentor": "^2.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Microsoft\\Dynamics\\": "src/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist"
+    }
+}
