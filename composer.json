@@ -2,7 +2,7 @@
     "name": "saintsystems/dynamics-sdk-php",
     "version": "0.1.0",
     "description": "Saint Systems Microsoft Dynamics 365 SDK for PHP",
-    "keywords": ["crm", "dynamics", "dynamics crm", "sdk"],
+    "keywords": ["crm", "xrm", "dynamics", "dynamics crm", "dynamics 365", "sdk"],
     "homepage": "https://github.com/saintsystems/dynamics-sdk-php",
     "license": "MIT",
     "type": "library",
