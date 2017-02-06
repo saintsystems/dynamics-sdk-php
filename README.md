@@ -21,11 +21,11 @@ You can install the PHP SDK with Composer.
 Register your application to use the Microsoft Dynamics 365 API by using one of the following
 supported authentication portals:
 
-* [Microsoft Application Registration Portal](https://apps.dev.microsoft.com) (**Recommended**):
-  Register a new application that authenticates using the v2.0 authentication endpoint. This endpoint authenticates both personal (Microsoft) and work or school (Azure Active Directory) accounts.
 * [Microsoft Azure Active Directory](https://manage.windowsazure.com): Register
   a new application in your tenant's Active Directory to support work or school
   users for your tenant, or multiple tenants.
+* [Microsoft Application Registration Portal](https://apps.dev.microsoft.com) (**Coming Soon**):
+  Register a new application that authenticates using the v2.0 authentication endpoint. This endpoint authenticates both personal (Microsoft) and work or school (Azure Active Directory) accounts.
 
 ### Authenticate with the Microsoft Graph service
 
@@ -44,16 +44,18 @@ use Microsoft\Dynamics\Model;
 
 class UsageExample
 {
+    $instanceUrl = 'https://contoso.crm.dynamics.com';
     $accessToken = 'xxx';
 
     $graph = new Dynamics();
-    $graph->setAccessToken($accessToken);
+    $graph->setInstanceUrl($instanceUrl)
+          ->setAccessToken($accessToken);
 
-    $user = $graph->createRequest("GET", "/me")
-                  ->setReturnType(Model\User::class)
+    $leads = $graph->createRequest("GET", "/leads(xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)")
+                  ->setReturnType(Model\Lead::class)
                   ->execute();
 
-    echo "Hello, I am $user->getGivenName() ";
+    echo "Hello, I am $lead->getFirstName() ";
 }
 ```
 
