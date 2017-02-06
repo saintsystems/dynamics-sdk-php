@@ -20,7 +20,7 @@ namespace Microsoft\Dynamics\Core;
 class DynamicsConstants
 {
     // Global Discovery Endpoint: https://msdn.microsoft.com/en-us/library/mt607485.aspx
-    const REST_GLOBAL_DISCOVERY_ENDPOINT = "https://globaldisco.crm.dynamics.com/api/discovery/v1.0/Instances"
+    const REST_GLOBAL_DISCOVERY_ENDPOINT = "https://globaldisco.crm.dynamics.com/api/discovery/v1.0/Instances";
     const REST_INSTANCE_DISCOVERY_ENDPOINT_FORMAT = "https://{instance_url}/api/discovery/";
 
     // ODATA Versions to be used when accessing the Web API (see: https://msdn.microsoft.com/en-us/library/gg334391.aspx)
