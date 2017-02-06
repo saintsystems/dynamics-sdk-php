@@ -24,11 +24,14 @@ class DynamicsConstants
     const REST_INSTANCE_DISCOVERY_ENDPOINT_FORMAT = "https://{instance_url}/api/discovery/";
 
     // ODATA Versions to be used when accessing the Web API (see: https://msdn.microsoft.com/en-us/library/gg334391.aspx)
+    const MAX_ODATA_VERSION_HEADER = "OData-MaxVersion";
+    const ODATA_VERSION_HEADER = "OData-Version";
+
     const MAX_ODATA_VERSION = "4.0";
     const ODATA_VERSION = "4.0";
 
-    const MAX_ODATA_VERSION_HEADER = "OData-MaxVersion";
-    const ODATA_VERSION_HEADER = "OData-Version";
+    const ODATA_MAX_PAGE_SIZE_HEADER = "Prefer";
+    const ODATA_MAX_PAGE_SIZE_DEFAULT = "odata.maxpagesize=25";
 
     // Dynamics Online 2016 Update 1 or later (Dynamics 365)
     const MIN_API_VERSION = "v8.0";
@@ -37,7 +40,7 @@ class DynamicsConstants
     const API_VERSION = "v8.2";
 
     // Dynamics Web API base endpoint format
-    const REST_INSTANCE_ENDPOINT_FORMAT = "https://{instance_url}/api/data/{api_version}/";
+    const REST_INSTANCE_ENDPOINT_FORMAT = "{scheme}://{instance_url}/api/data/";
 
     // Header to be used when impersonating another Dynamics user
     const REST_IMPERSONATION_HEADER = "MSCRMCallerID";

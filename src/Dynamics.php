@@ -20,6 +20,7 @@ namespace Microsoft\Dynamics;
 use Microsoft\Dynamics\Core\DynamicsConstants;
 use Microsoft\Dynamics\Http\DynamicsCollectionRequest;
 use Microsoft\Dynamics\Http\DynamicsRequest;
+use Microsoft\Dynamics\Exception\DynamicsException;
 
 /**
  * Class Dynamics
@@ -57,7 +58,9 @@ class Dynamics
     */
     public function __construct($instanceUrl = null, $accessToken = null, $apiVersion = null)
     {
-        $this->_instanceUrl = $instanceUrl;
+        if ( ! empty($instanceUrl)) {
+            $this->parseInstanceUrl($instanceUrl);
+        }
         $this->_accessToken = $accessToken;
         $this->_apiVersion = $apiVersion;
 
@@ -75,8 +78,25 @@ class Dynamics
     */
     public function setInstanceUrl($instanceUrl)
     {
-        $this->_instanceUrl = $instanceUrl;
+        $this->parseInstanceUrl($instanceUrl);
         return $this;
+    }
+
+    /**
+     * Parse the instance url and reconstitute the instance API URL from it
+     * @param  [type] $instanceUrl [description]
+     * @return [type]              [description]
+     */
+    private function parseInstanceUrl($instanceUrl)
+    {
+        if (empty($instanceUrl)) {
+            throw new DynamicsException(DynamicsConstants::INSTANCE_URL_MISSING);
+        }
+
+        $parsedUrl = parse_url($instanceUrl);
+
+        $this->_instanceUrl = str_replace('{scheme}',$parsedUrl['scheme'], DynamicsConstants::REST_INSTANCE_ENDPOINT_FORMAT);
+        $this->_instanceUrl = str_replace('{instance_url}',$parsedUrl['host'], $this->_instanceUrl);
     }
 
     /**

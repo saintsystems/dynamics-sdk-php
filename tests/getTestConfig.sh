@@ -7,7 +7,7 @@ testConfig="{
     \"test_client_secret_v2\": \"$test_client_secret_v2\",
     \"test_username\": \"$test_username\",
     \"test_password\": \"$1\",
-    \"test_resource\": \"$test_resource\"
+    \"test_instance_url\": \"$test_instance_url\"
 }"
 echo $testConfig
-echo $testConfig > testConfig.json
+echo $testConfig > testConfig.example.json

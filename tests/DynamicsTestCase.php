@@ -13,7 +13,7 @@ class DynamicsTestCase extends TestCase
     protected $accessToken;
     private $username;
     private $password;
-    protected $resource;
+    protected $instanceUrl;
 
     const AUTHORITY_URL      = 'https://login.microsoftonline.com/common';
     const AUTHORIZE_ENDPOINT = '/oauth2/authorize';
@@ -36,7 +36,7 @@ class DynamicsTestCase extends TestCase
         $this->clientSecret = $testConfig['test_client_secret_v1'];
         $this->username     = $testConfig['test_username'];
         $this->password     = $testConfig['test_password'];
-        $this->resource     = $testConfig['test_resource'] ?? '';
+        $this->instanceUrl  = $testConfig['test_instance_url'] ?? '';
     }
 
     public function getAccessToken()
@@ -72,7 +72,7 @@ class DynamicsTestCase extends TestCase
         
         $uri = self::AUTHORITY_URL . self::TOKEN_ENDPOINT;
 
-        $this->log->info($uri);
+        //$this->log->info($uri);
 
         $form_params = [
             'grant_type'    => 'password',
@@ -80,10 +80,10 @@ class DynamicsTestCase extends TestCase
             'client_secret' => $this->clientSecret,
             'username'      => $this->username,
             'password'      => $this->password,
-            'resource'      => $this->resource,
+            'resource'      => $this->instanceUrl,
         ];
 
-        $this->log->info(print_r($form_params, true));
+        //$this->log->info(print_r($form_params, true));
 
         $response = $this->http->request('POST', $uri, [
             'form_params' => $form_params
@@ -91,7 +91,7 @@ class DynamicsTestCase extends TestCase
 
         $json = $response->getBody();
 
-        $this->log->info($json);
+        //$this->log->info($json);
 
         $token = json_decode( $json, true );
 

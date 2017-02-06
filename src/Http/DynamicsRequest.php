@@ -115,12 +115,16 @@ class DynamicsRequest
         $this->requestType = $requestType;
         $this->endpoint = $endpoint;
         $this->accessToken = $accessToken;
+        $this->instanceUrl = $instanceUrl;
 
         if (!$this->accessToken) {
             throw new DynamicsException(DynamicsConstants::NO_ACCESS_TOKEN);
         }
 
-        $this->instanceUrl = $instanceUrl;
+        if (empty($this->instanceUrl)) {
+            throw new DynamicsException(DynamicsConstants::INSTANCE_URL_MISSING);
+        }
+
         $this->apiVersion = $apiVersion;
         $this->timeout = 0;
         $this->headers = $this->_getDefaultHeaders();
@@ -388,6 +392,9 @@ class DynamicsRequest
         $headers = [
             'Host' => $this->instanceUrl,
             'Content-Type' => 'application/json',
+            DynamicsConstants::MAX_ODATA_VERSION_HEADER => DynamicsConstants::MAX_ODATA_VERSION,
+            DynamicsConstants::ODATA_VERSION_HEADER => DynamicsConstants::ODATA_VERSION,
+            DynamicsConstants::ODATA_MAX_PAGE_SIZE_HEADER => DynamicsConstants::ODATA_MAX_PAGE_SIZE_DEFAULT,
             'SdkVersion' => 'Dynamics-php-' . DynamicsConstants::SDK_VERSION,
             'Authorization' => 'Bearer ' . $this->accessToken
         ];
