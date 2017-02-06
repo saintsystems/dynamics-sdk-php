@@ -29,7 +29,10 @@ class DynamicsTestCase extends TestCase
 
     public function getTestConfig()
     {
-        $testConfigFile = file_get_contents(__DIR__ . '/testConfig.json');
+        $configFileLocation = file_exists(__DIR__ . '/testConfig.json') ? __DIR__ . '/testConfig.json' : __DIR__ . '/testConfig.example.json';
+        
+        $testConfigFile = file_get_contents($configFileLocation);
+        
         $testConfig = json_decode($testConfigFile, true);
 
         $this->clientId     = $testConfig['test_client_id_v1'];
