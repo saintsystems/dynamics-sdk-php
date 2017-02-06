@@ -42,7 +42,7 @@ class DynamicsTestCase extends TestCase
         $this->clientSecret = $testConfig['test_client_secret_v1'];
         $this->username     = $testConfig['test_username'];
         $this->password     = $testConfig['test_password'];
-        $this->instanceUrl  = $testConfig['test_instance_url'] ?? '';
+        $this->instanceUrl  = $testConfig['test_instance_url'];
     }
 
     public function getAccessToken()
