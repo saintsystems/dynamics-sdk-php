@@ -2,6 +2,7 @@
 use PHPUnit\Framework\TestCase;
 use Microsoft\Dynamics\Model;
 use Microsoft\Dynamics\Core\Enum;
+use Microsoft\Dynamics\Support\Str;
 
 class ModelTest extends TestCase
 {
@@ -48,6 +49,26 @@ class ModelTest extends TestCase
         foreach ($this->entities as $entityClass) {
             $entity = new $entityClass();
             $this->assertInstanceOf($entityClass, $entity);
+        }
+    }
+
+    public function testEntityPrimaryKeys()
+    {
+        foreach ($this->entities as $entityClass) {
+            $entity = new $entityClass();
+            $entityName = $entity->getEntity();
+            $expected = str_replace('\\', '', Str::snake(Str::plural(class_basename($entity))));
+            $this->assertEquals($expected, $entityName);
+        }
+    }
+
+    public function testEntityNames()
+    {
+        foreach ($this->entities as $entityClass) {
+            $entity = new $entityClass();
+            $primaryKey = $this->readAttribute($entity, 'primaryKey');
+            $expected = strtolower(class_basename($entity)).'id';
+            $this->assertEquals($expected, $primaryKey);
         }
     }
 
