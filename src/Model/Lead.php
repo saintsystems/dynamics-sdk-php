@@ -27,6 +27,33 @@ namespace Microsoft\Dynamics\Model;
 */
 class Lead extends Entity
 {
+    // protected $fillable = [
+    //     'address1_city',
+    //     'leadid',
+    //     'firstname',
+    //     'lastname',
+    //     'emailaddress1',
+    // ];
+    
+    // protected $casts = [
+    //     'address1_addresstypecode'    => 'integer',
+    //     'address1_latitude'           => 'double',
+    //     'address1_longitude'          => 'double',
+    //     'address1_shippingmethodcode' => 'integer',
+    //     'address1_utcoffset'          => 'integer',
+    //     'address2_addresstypecode'    => 'integer',
+    //     'address2_latitude'           => 'double',
+    //     'address2_longitude'          => 'double',
+    //     'address2_shippingmethodcode' => 'integer',
+    //     'address2_utcoffset'          => 'integer',
+    //     'budgetamount'                => 'float',
+    //     'budgetamount_base'           => 'float',
+    //     'budgetstatus'                => 'integer',
+    //     'confirminterest'             => 'boolean',
+    //     'new_donationamount'          => 'float',
+    //     // 'createdon'                   => 'timestamp'
+    // ];
+    
 
     /**
     * Gets the emailaddress1
