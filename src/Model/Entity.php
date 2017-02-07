@@ -32,7 +32,7 @@ class Entity
     *
     * @var array(string => string)
     */
-    private $_propDict;
+    protected $_propDict;
     
     /**
     * Construct a new Entity
@@ -64,7 +64,14 @@ class Entity
     */
     public function getId()
     {
-        if (array_key_exists("id", $this->_propDict)) {
+        $classNameParts = explode('\\',get_class($this));
+        $className = strtolower(end($classNameParts));
+
+        $id = $className . "id";
+
+        if (array_key_exists($id, $this->_propDict)) {
+            return $this->_propDict[$id];
+        } else if(array_key_exists("id", $this->_propDict)) {
             return $this->_propDict["id"];
         } else {
             return null;

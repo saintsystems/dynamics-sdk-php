@@ -33,7 +33,7 @@ class Lead extends Entity
     *
     * @var array(string => string)
     */
-    private $_propDict;
+    //private $_propDict;
     
     /**
     * Construct a new Lead
@@ -44,8 +44,8 @@ class Lead extends Entity
     */
     function __construct($propDict = array())
     {
-        parent::__construct();
-        $this->_propDict = $propDict;
+        parent::__construct($propDict);
+        //$this->_propDict = $propDict;
         return $this;
     }
 
@@ -83,6 +83,60 @@ class Lead extends Entity
     public function setFirstName($val)
     {
         $this->_propDict["firstname"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the lastname
+    *
+    * @return string The lastname
+    */
+    public function getLastName()
+    {
+        if (array_key_exists("lastname", $this->_propDict)) {
+            return $this->_propDict["lastname"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the lastname
+    *
+    * @param string $val The lastname
+    *
+    * @return Lead
+    */
+    public function setLastName($val)
+    {
+        $this->_propDict["lastname"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the emailaddress1
+    *
+    * @return string The emailaddress1
+    */
+    public function getEmailAddress1()
+    {
+        if (array_key_exists("emailaddress1", $this->_propDict)) {
+            return $this->_propDict["emailaddress1"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the emailaddress1
+    *
+    * @param string $val The emailaddress1
+    *
+    * @return Lead
+    */
+    public function setEmailAddress1($val)
+    {
+        $this->_propDict["emailaddress1"] = $val;
         return $this;
     }
 

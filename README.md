@@ -47,11 +47,21 @@ class UsageExample
     $instanceUrl = 'https://contoso.crm.dynamics.com';
     $accessToken = 'xxx';
 
-    $graph = new Dynamics();
-    $graph->setInstanceUrl($instanceUrl)
-          ->setAccessToken($accessToken);
+    $dynamics = new Dynamics();
+    $dynamics->setInstanceUrl($instanceUrl)
+             ->setAccessToken($accessToken);
 
-    $leads = $graph->createRequest("GET", "/leads(xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)")
+    $leads = $dynamics->createRequest("GET", "/leads")
+                  ->setReturnType(Model\Lead::class)
+                  ->execute();
+
+    $lead = $leads[0];
+
+    echo "Hello, I am $lead->getFirstName() ";
+
+    // OR GET a specific lead by ID
+
+    $lead = $dynamics->createRequest("GET", "/leads(xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)")
                   ->setReturnType(Model\Lead::class)
                   ->execute();
 

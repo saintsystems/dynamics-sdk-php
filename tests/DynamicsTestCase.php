@@ -47,11 +47,7 @@ class DynamicsTestCase extends TestCase
 
     public function getAccessToken()
     {
-        if (empty($this->clientId) 
-            || empty($this->clientSecret)
-            || empty($this->username)
-            || empty($this->password)
-            || empty($this->instanceUrl)) return;
+        if ( ! $this->canRun()) return;
         // $tokenEndpoint = Constants::AUTHORITY_URL . '/oauth2/token';
         // $body = http_build_query(
         //     array(
@@ -107,5 +103,14 @@ class DynamicsTestCase extends TestCase
         $token = json_decode( $json, true );
 
         $this->accessToken = $token['access_token'];
+    }
+
+    public function canRun()
+    {
+        return (!empty($this->clientId) 
+            && !empty($this->clientSecret)
+            && !empty($this->username)
+            && !empty($this->password)
+            && !empty($this->instanceUrl));
     }
 }
