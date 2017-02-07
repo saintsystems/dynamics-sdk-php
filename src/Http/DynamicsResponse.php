@@ -32,26 +32,29 @@ class DynamicsResponse
     *
     * @var string
     */
-    private $_body;
+    private $body;
+
     /**
     * The body of the response, 
     * decoded into an array
     *
     * @var array(string)
     */
-    private $_decodedBody;
+    private $decodedBody;
+
     /**
     * The headers of the response
     *
     * @var array(string)
     */
-    private $_headers;
+    private $headers;
+
     /**
     * The status code of the response
     *
     * @var string
     */
-    private $_httpStatusCode;
+    private $httpStatusCode;
 
     /**
     * Creates a new Dynamics HTTP response entity
@@ -63,11 +66,11 @@ class DynamicsResponse
     */
     public function __construct($request, $body = null, $httpStatusCode = null, $headers = array())
     {
-        $this->_request = $request;
-        $this->_body = $body;
-        $this->_httpStatusCode = $httpStatusCode;
-        $this->_headers = $headers;
-        $this->_decodedBody = $this->_decodeBody();
+        $this->request = $request;
+        $this->body = $body;
+        $this->httpStatusCode = $httpStatusCode;
+        $this->headers = $headers;
+        $this->decodedBody = $this->decodeBody();
     }
 
     /**
@@ -75,9 +78,9 @@ class DynamicsResponse
     *
     * @return array The decoded response
     */
-    private function _decodeBody()
+    private function decodeBody()
     {
-        $decodedBody = json_decode($this->_body, true);
+        $decodedBody = json_decode($this->body, true);
         if ($decodedBody === null) {
             $decodedBody = array();
         }
@@ -91,7 +94,7 @@ class DynamicsResponse
     */
     public function getBody()
     {
-        return $this->_decodedBody;
+        return $this->decodedBody;
     }
 
     /**
@@ -101,7 +104,7 @@ class DynamicsResponse
     */
     public function getRawBody()
     {
-        return $this->_body;
+        return $this->body;
     }
 
     /**
@@ -111,7 +114,7 @@ class DynamicsResponse
     */
     public function getStatus()
     {
-        return $this->_httpStatusCode;
+        return $this->httpStatusCode;
     }
 
     /**
@@ -121,7 +124,7 @@ class DynamicsResponse
     */
     public function getHeaders()
     {
-        return $this->_headers;
+        return $this->headers;
     }
 
     /**

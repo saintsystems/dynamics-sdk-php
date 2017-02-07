@@ -36,24 +36,28 @@ class DynamicsCollectionRequest extends DynamicsRequest
     * @var int
     */
     protected $pageSize;
+
     /**
     * The skip token to use in calling a new page of results
     *
     * @var string
     */
     protected $skipToken;
+
     /**
     * True if the user has reached the end of the collection
     *
     * @var bool
     */
     protected $end;
+
     /**
     * The endpoint that the user called (with query parameters)
     *
     * @var string
     */
     protected $originalEndpoint;
+    
     /**
     * The return type that the user specified
     *
