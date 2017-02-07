@@ -126,7 +126,7 @@ class HttpTest extends TestCase
     public function testSendObject()
     {
         $lead = new Microsoft\Dynamics\Model\Lead();
-        $lead->setFirstName('Bob');
+        $lead->firstname = 'Bob';
         $request = $this->getRequest->attachBody($lead);
         $this->assertInstanceOf(DynamicsRequest::class, $request);
 

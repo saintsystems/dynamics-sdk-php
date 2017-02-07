@@ -32,7 +32,7 @@ class DynamicsInstanceTest extends DynamicsTestCase
 
         if (count($leads) > 0) {
             $lead = $leads[0];
-            // $this->log->info(sprintf('%s %s (%s)', $lead->getFirstName(), $lead->getLastName(), $lead->getId()));
+            // $this->log->info(sprintf('%s %s (%s)', $lead->getFirstName(), $lead->getLastName(), $lead->id);
             $this->assertInstanceOf(Microsoft\Dynamics\Model\Lead::class, $lead);
         }
         
@@ -50,7 +50,7 @@ class DynamicsInstanceTest extends DynamicsTestCase
                       ->setReturnType(Model\Lead::class)
                       ->execute();
 
-        $this->assertEquals($leadId, $lead->getId());
+        $this->assertEquals($leadId, $lead->id);
 
     }
 
@@ -70,9 +70,9 @@ class DynamicsInstanceTest extends DynamicsTestCase
 
         // $this->log->info(print_r($lead, true));
 
-        $this->assertEquals($leadId, $lead->getId());
-        $this->assertEquals('Adam', $lead->getFirstName());
-        $this->assertEquals('adam@anderly.com', $lead->getEmailAddress1());
+        $this->assertEquals($leadId, $lead->id);
+        $this->assertEquals('Adam', $lead->firstname);
+        $this->assertEquals('adam@anderly.com', $lead->emailaddress1);
 
     }
 }

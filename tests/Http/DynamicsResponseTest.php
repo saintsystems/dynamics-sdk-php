@@ -32,7 +32,7 @@ class DynamicsResponseTest extends TestCase
         $response = $this->request->execute($this->client);
 
         $this->assertInstanceOf(Model\Lead::class, $response);
-        $this->assertEquals($this->responseBody['firstname'], $response->getFirstName());
+        $this->assertEquals($this->responseBody['firstname'], $response->firstname);
 
     }
 

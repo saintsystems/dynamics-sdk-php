@@ -37,48 +37,56 @@ class DynamicsRequest
     * @var string
     */
     protected $accessToken;
+
     /**
     * The API version to use ("v1.0", "beta")
     *
     * @var string
     */
     protected $apiVersion;
+
     /**
-    * The instance url to call
+    * The instance api url to call
     *
     * @var string
     */
-    protected $instanceUrl;
+    protected $instanceApiUrl;
+
     /**
     * The endpoint to call
     *
     * @var string
     */
     protected $endpoint;
+
     /**
     * The Guzzle client used to make the HTTP request
     *
     * @var Client
     */
     protected $guzzleClient;
+
     /**
     * An array of headers to send with the request
     *
     * @var array(string => string)
     */
     protected $headers;
+
     /**
     * The body of the request (optional)
     *
     * @var string
     */
     protected $requestBody;
+
     /**
     * The type of request to make ("GET", "POST", etc.)
     *
     * @var object
     */
     protected $requestType;
+
     /**
     * True if the response should be returned as
     * a stream
@@ -86,12 +94,14 @@ class DynamicsRequest
     * @var bool
     */
     protected $returnsStream;
+
     /**
     * The return type to cast the response as
     *
     * @var object
     */
     protected $returnType;
+
     /**
     * The timeout, in seconds
     *
@@ -102,27 +112,27 @@ class DynamicsRequest
     /**
     * Constructs a new Dynamics Request object
     *
-    * @param string $requestType The HTTP method to use, e.g. "GET" or "POST"
-    * @param string $endpoint    The Dynamics endpoint to call
-    * @param string $accessToken A valid access token to validate the Dynamics call
-    * @param string $instanceUrl The instance URL to call
-    * @param string $apiVersion  The API version to use
+    * @param string $requestType    The HTTP method to use, e.g. "GET" or "POST"
+    * @param string $endpoint       The Dynamics endpoint to call
+    * @param string $accessToken    A valid access token to validate the Dynamics call
+    * @param string $instanceApiUrl The instance URL to call
+    * @param string $apiVersion     The API version to use
      *
      * @throws DynamicsException when no access token is provided
     */ 
-    public function __construct($requestType, $endpoint, $accessToken, $instanceUrl, $apiVersion)
+    public function __construct($requestType, $endpoint, $accessToken, $instanceApiUrl, $apiVersion)
     {
         $this->requestType = $requestType;
         $this->endpoint = $endpoint;
         $this->accessToken = $accessToken;
-        $this->instanceUrl = $instanceUrl;
+        $this->instanceApiUrl = $instanceApiUrl;
 
         if (!$this->accessToken) {
             throw new DynamicsException(DynamicsConstants::NO_ACCESS_TOKEN);
         }
 
-        if (empty($this->instanceUrl)) {
-            throw new DynamicsException(DynamicsConstants::INSTANCE_URL_MISSING);
+        if (empty($this->instanceApiUrl)) {
+            throw new DynamicsException(DynamicsConstants::INSTANCE_API_URL_MISSING);
         }
 
         $this->apiVersion = $apiVersion;
@@ -390,11 +400,11 @@ class DynamicsRequest
     private function _getDefaultHeaders()
     {
         $headers = [
-            'Host' => $this->instanceUrl,
+            'Host' => $this->instanceApiUrl,
             'Content-Type' => 'application/json',
             DynamicsConstants::MAX_ODATA_VERSION_HEADER => DynamicsConstants::MAX_ODATA_VERSION,
             DynamicsConstants::ODATA_VERSION_HEADER => DynamicsConstants::ODATA_VERSION,
-            DynamicsConstants::ODATA_MAX_PAGE_SIZE_HEADER => DynamicsConstants::ODATA_MAX_PAGE_SIZE_DEFAULT,
+            DynamicsConstants::PREFER_HEADER => DynamicsConstants::ODATA_MAX_PAGE_SIZE_DEFAULT,
             'SdkVersion' => 'Dynamics-php-' . DynamicsConstants::SDK_VERSION,
             'Authorization' => 'Bearer ' . $this->accessToken
         ];
@@ -439,7 +449,7 @@ class DynamicsRequest
     {
         $client = new Client(
             [
-                'base_uri' => $this->instanceUrl,
+                'base_uri' => $this->instanceApiUrl,
                 'headers' => $this->headers
             ]
         );

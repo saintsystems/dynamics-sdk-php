@@ -20,8 +20,8 @@ namespace Microsoft\Dynamics\Core;
 class DynamicsConstants
 {
     // Global Discovery Endpoint: https://msdn.microsoft.com/en-us/library/mt607485.aspx
-    const REST_GLOBAL_DISCOVERY_ENDPOINT = "https://globaldisco.crm.dynamics.com/api/discovery/v1.0/Instances";
-    const REST_INSTANCE_DISCOVERY_ENDPOINT_FORMAT = "https://{instance_url}/api/discovery/";
+    const GLOBAL_DISCOVERY_ENDPOINT = "https://globaldisco.crm.dynamics.com/api/discovery/v1.0/Instances";
+    const WEB_API_INSTANCE_DISCOVERY_ENDPOINT_FORMAT = "{scheme}://{instance_url}/api/discovery/";
 
     // ODATA Versions to be used when accessing the Web API (see: https://msdn.microsoft.com/en-us/library/gg334391.aspx)
     const MAX_ODATA_VERSION_HEADER = "OData-MaxVersion";
@@ -31,7 +31,7 @@ class DynamicsConstants
     const ODATA_VERSION = "4.0";
 
     // Default ODATA Paging
-    const ODATA_MAX_PAGE_SIZE_HEADER = "Prefer";
+    const PREFER_HEADER = "Prefer";
     const ODATA_MAX_PAGE_SIZE_DEFAULT = "odata.maxpagesize=25";
 
     // Dynamics Online 2016 Update 1 or later (Dynamics 365)
@@ -41,7 +41,7 @@ class DynamicsConstants
     const API_VERSION = "v8.2";
 
     // Dynamics Web API base endpoint format
-    const REST_INSTANCE_ENDPOINT_FORMAT = "{scheme}://{instance_url}/api/data/";
+    const WEB_API_INSTANCE_ENDPOINT_FORMAT = "{scheme}://{instance_url}/api/data/";
 
     // Header to be used when impersonating another Dynamics user
     const REST_IMPERSONATION_HEADER = "MSCRMCallerID";
@@ -56,6 +56,7 @@ class DynamicsConstants
 
     // Define error message constants
     const INSTANCE_URL_MISSING = "Instance URL cannot be null or empty.";
+    const INSTANCE_API_URL_MISSING = "Instance API URL cannot be null or empty.";
     const REQUEST_TIMED_OUT = "The request timed out.";
     const UNABLE_TO_CREATE_INSTANCE_OF_TYPE = "Unable to create instance of type.";
 

@@ -23,7 +23,7 @@ class DynamicsRequestTest extends TestCase
             "Content-Type" => "application/json",
             DynamicsConstants::MAX_ODATA_VERSION_HEADER => DynamicsConstants::MAX_ODATA_VERSION,
             DynamicsConstants::ODATA_VERSION_HEADER => DynamicsConstants::ODATA_VERSION,
-            DynamicsConstants::ODATA_MAX_PAGE_SIZE_HEADER => DynamicsConstants::ODATA_MAX_PAGE_SIZE_DEFAULT,
+            DynamicsConstants::PREFER_HEADER => DynamicsConstants::ODATA_MAX_PAGE_SIZE_DEFAULT,
             "SdkVersion" => "Dynamics-php-" . DynamicsConstants::SDK_VERSION,
             "SdkVersion" => "Dynamics-php-" . DynamicsConstants::SDK_VERSION,
             "Authorization" => "Bearer token"
@@ -72,7 +72,7 @@ class DynamicsRequestTest extends TestCase
             "Content-Type" => "application/json",
             DynamicsConstants::MAX_ODATA_VERSION_HEADER => DynamicsConstants::MAX_ODATA_VERSION,
             DynamicsConstants::ODATA_VERSION_HEADER => DynamicsConstants::ODATA_VERSION,
-            DynamicsConstants::ODATA_MAX_PAGE_SIZE_HEADER => DynamicsConstants::ODATA_MAX_PAGE_SIZE_DEFAULT,
+            DynamicsConstants::PREFER_HEADER => DynamicsConstants::ODATA_MAX_PAGE_SIZE_DEFAULT,
             "SdkVersion" => "Dynamics-php-" . DynamicsConstants::SDK_VERSION,
             "SdkVersion" => "Dynamics-php-" . DynamicsConstants::SDK_VERSION,
             "Authorization" => "Bearer token",
@@ -93,7 +93,7 @@ class DynamicsRequestTest extends TestCase
             "Content-Type" => "application/x-www-form-urlencoded",
             DynamicsConstants::MAX_ODATA_VERSION_HEADER => DynamicsConstants::MAX_ODATA_VERSION,
             DynamicsConstants::ODATA_VERSION_HEADER => DynamicsConstants::ODATA_VERSION,
-            DynamicsConstants::ODATA_MAX_PAGE_SIZE_HEADER => DynamicsConstants::ODATA_MAX_PAGE_SIZE_DEFAULT,
+            DynamicsConstants::PREFER_HEADER => DynamicsConstants::ODATA_MAX_PAGE_SIZE_DEFAULT,
             "SdkVersion" => "Dynamics-php-" . DynamicsConstants::SDK_VERSION,
             "Authorization" => "Bearer token"
         );

@@ -27,117 +27,15 @@ namespace Microsoft\Dynamics\Model;
 */
 class Lead extends Entity
 {
-    /**
-    * The array of properties available
-    * to the model
-    *
-    * @var array(string => string)
-    */
-    //private $_propDict;
-    
-    /**
-    * Construct a new Lead
-    *
-    * @param array $propDict A list of properties to set
-    *
-    * @return Lead
-    */
-    function __construct($propDict = array())
-    {
-        parent::__construct($propDict);
-        //$this->_propDict = $propDict;
-        return $this;
-    }
-
-    /**
-    * Gets the property dictionary of the Lead
-    *
-    * @return array The list of properties
-    */
-    public function getProperties()
-    {
-        return $this->_propDict;
-    }
-
-    /**
-    * Gets the firstname
-    *
-    * @return string The firstname
-    */
-    public function getFirstName()
-    {
-        if (array_key_exists("firstname", $this->_propDict)) {
-            return $this->_propDict["firstname"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the firstname
-    *
-    * @param string $val The firstname
-    *
-    * @return Lead
-    */
-    public function setFirstName($val)
-    {
-        $this->_propDict["firstname"] = $val;
-        return $this;
-    }
-
-    /**
-    * Gets the lastname
-    *
-    * @return string The lastname
-    */
-    public function getLastName()
-    {
-        if (array_key_exists("lastname", $this->_propDict)) {
-            return $this->_propDict["lastname"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the lastname
-    *
-    * @param string $val The lastname
-    *
-    * @return Lead
-    */
-    public function setLastName($val)
-    {
-        $this->_propDict["lastname"] = $val;
-        return $this;
-    }
 
     /**
     * Gets the emailaddress1
     *
     * @return string The emailaddress1
     */
-    public function getEmailAddress1()
+    public function get_fullname()
     {
-        if (array_key_exists("emailaddress1", $this->_propDict)) {
-            return $this->_propDict["emailaddress1"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the emailaddress1
-    *
-    * @param string $val The emailaddress1
-    *
-    * @return Lead
-    */
-    public function setEmailAddress1($val)
-    {
-        $this->_propDict["emailaddress1"] = $val;
-        return $this;
+        return $this->properties["firstname"].' '.$this->properties["lastname"];
     }
 
 }

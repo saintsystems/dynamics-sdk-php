@@ -38,20 +38,29 @@ class Dynamics
     *
     * @var string
     */
-    private $_accessToken;
+    private $accessToken;
+
     /**
     * The api version to use ("v8.0", "v8.1", "v8.2")
     * Default is "v8.2"
     *
     * @var string
     */
-    private $_apiVersion;
+    private $apiVersion;
+
     /**
     * The Dynamics instance url to call
     *
     * @var string
     */
-    private $_instanceUrl;
+    private $instanceUrl;
+
+    /**
+    * The Dynamics instance api url to call
+    *
+    * @var string
+    */
+    private $instanceApiUrl;
 
     /**
     * Creates a new Dynamics object, which is used to call the Dynamics 365 API
@@ -61,11 +70,11 @@ class Dynamics
         if ( ! empty($instanceUrl)) {
             $this->parseInstanceUrl($instanceUrl);
         }
-        $this->_accessToken = $accessToken;
-        $this->_apiVersion = $apiVersion;
+        $this->accessToken = $accessToken;
+        $this->apiVersion = $apiVersion;
 
-        if (empty($this->_apiVersion)) {
-            $this->_apiVersion = DynamicsConstants::API_VERSION;
+        if (empty($this->apiVersion)) {
+            $this->apiVersion = DynamicsConstants::API_VERSION;
         }
     }
 
@@ -95,8 +104,11 @@ class Dynamics
 
         $parsedUrl = parse_url($instanceUrl);
 
-        $this->_instanceUrl = str_replace('{scheme}',$parsedUrl['scheme'], DynamicsConstants::REST_INSTANCE_ENDPOINT_FORMAT);
-        $this->_instanceUrl = str_replace('{instance_url}',$parsedUrl['host'], $this->_instanceUrl);
+        $this->instanceUrl = $parsedUrl['scheme'].'://'.$parsedUrl['host'];
+
+        // TODO: Discover Instance API URL and Version using Discovery Service
+        $this->instanceApiUrl = str_replace('{scheme}',$parsedUrl['scheme'], DynamicsConstants::WEB_API_INSTANCE_ENDPOINT_FORMAT);
+        $this->instanceApiUrl = str_replace('{instance_url}',$parsedUrl['host'], $this->instanceApiUrl);
     }
 
     /**
@@ -108,7 +120,7 @@ class Dynamics
     */
     public function setApiVersion($apiVersion)
     {
-        $this->_apiVersion = $apiVersion;
+        $this->apiVersion = $apiVersion;
         return $this;
     }
 
@@ -122,7 +134,7 @@ class Dynamics
     */
     public function setAccessToken($accessToken)
     {
-        $this->_accessToken = $accessToken;
+        $this->accessToken = $accessToken;
         return $this;
     }
 
@@ -140,9 +152,9 @@ class Dynamics
         return new DynamicsRequest(
             $requestType, 
             $endpoint, 
-            $this->_accessToken, 
-            $this->_instanceUrl, 
-            $this->_apiVersion
+            $this->accessToken, 
+            $this->instanceApiUrl, 
+            $this->apiVersion
         );
     }
 
@@ -161,9 +173,9 @@ class Dynamics
         return new DynamicsCollectionRequest(
             $requestType, 
             $endpoint, 
-            $this->_accessToken, 
-            $this->_instanceUrl, 
-            $this->_apiVersion
+            $this->accessToken, 
+            $this->instanceApiUrl, 
+            $this->apiVersion
         );
     }
 }

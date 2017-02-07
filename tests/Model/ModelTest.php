@@ -58,4 +58,27 @@ class ModelTest extends TestCase
             $this->assertInstanceOf($complexTypeClass, $complexEntity);
         }
     }
+
+    public function testLeadEntity()
+    {
+        $lead = new Model\Lead([
+            'leadid' => 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx',
+            'firstname' => 'Bob',
+            'lastname' => 'Barker',
+            'address1_city' => 'Somewhere',
+        ]);
+        $this->assertEquals('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', $lead->id);
+        $this->assertEquals('Bob', $lead->firstname);
+        $this->assertEquals('Barker', $lead->lastname);
+        $this->assertEquals('Somewhere', $lead->address1_city);
+    }
+
+    public function testLeadEntityWithMutator()
+    {
+        $lead = new Model\Lead([
+            'firstname' => 'Bob',
+            'lastname' => 'Barker',
+        ]);
+        $this->assertEquals('Bob Barker', $lead->fullname);
+    }
 }

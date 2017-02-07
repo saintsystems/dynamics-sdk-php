@@ -19,14 +19,16 @@ class DynamicsTest extends DynamicsTestCase
     public function testDynamicsConstructorWithInstanceUrl()
     {
         $dynamics = new Dynamics(self::TEST_INSTANCE_URL);
-        $instanceUrl = $this->readAttribute($dynamics, '_instanceUrl');
-        $this->assertEquals(self::TEST_INSTANCE_URL . '/api/data/', $instanceUrl);
+        $instanceUrl = $this->readAttribute($dynamics, 'instanceUrl');
+        $instanceApiUrl = $this->readAttribute($dynamics, 'instanceApiUrl');
+        $this->assertEquals(self::TEST_INSTANCE_URL, $instanceUrl);
+        $this->assertEquals(self::TEST_INSTANCE_URL . '/api/data/', $instanceApiUrl);
     }
 
     public function testDynamicsConstructorWithInstanceUrlAndAccessToken()
     {
         $dynamics = new Dynamics(self::TEST_INSTANCE_URL, 'abc');
-        $accessToken = $this->readAttribute($dynamics, '_accessToken');
+        $accessToken = $this->readAttribute($dynamics, 'accessToken');
         $this->assertEquals('abc', $accessToken);
     }
 
@@ -34,22 +36,24 @@ class DynamicsTest extends DynamicsTestCase
     {
         $dynamics = new Dynamics();
         $dynamics->setInstanceUrl(self::TEST_INSTANCE_URL);
-        $instanceUrl = $this->readAttribute($dynamics, '_instanceUrl');
-        $this->assertEquals(self::TEST_INSTANCE_URL . '/api/data/', $instanceUrl);
+        $instanceUrl = $this->readAttribute($dynamics, 'instanceUrl');
+        $instanceApiUrl = $this->readAttribute($dynamics, 'instanceApiUrl');
+        $this->assertEquals(self::TEST_INSTANCE_URL, $instanceUrl);
+        $this->assertEquals(self::TEST_INSTANCE_URL . '/api/data/', $instanceApiUrl);
     }
 
     public function testDynamicsAccessTokenSetter()
     {
         $dynamics = new Dynamics();
         $dynamics->setAccessToken('abc');
-        $accessToken = $this->readAttribute($dynamics, '_accessToken');
+        $accessToken = $this->readAttribute($dynamics, 'accessToken');
         $this->assertEquals('abc', $accessToken);
     }
 
     public function testDynamicsDefaultApiVersion()
     {
         $dynamics = new Dynamics();
-        $apiVersion = $this->readAttribute($dynamics, '_apiVersion');
+        $apiVersion = $this->readAttribute($dynamics, 'apiVersion');
         $this->assertEquals(DynamicsConstants::API_VERSION, $apiVersion);
     }
 
@@ -57,7 +61,7 @@ class DynamicsTest extends DynamicsTestCase
     {
         $dynamics = new Dynamics();
         $dynamics->setApiVersion('v8.0');
-        $apiVersion = $this->readAttribute($dynamics, '_apiVersion');
+        $apiVersion = $this->readAttribute($dynamics, 'apiVersion');
         $this->assertEquals('v8.0', $apiVersion);
     }
 
@@ -119,7 +123,7 @@ class DynamicsTest extends DynamicsTestCase
                  ->setAccessToken('abc');
 
         $request = $dynamics->createRequest('GET', '/me');
-        $requestUrl = $this->readAttribute($request, 'instanceUrl');
+        $requestUrl = $this->readAttribute($request, 'instanceApiUrl');
         $this->assertEquals(self::TEST_INSTANCE_URL . '/api/data/', $requestUrl);
     }
 
@@ -149,8 +153,8 @@ class DynamicsTest extends DynamicsTestCase
         $request = $dynamics->createRequest('GET', '/me');
         $request2 = $dynamics2->createRequest('GET', '/me');
 
-        $this->assertEquals(self::TEST_INSTANCE_URL . '/api/data/', $this->readAttribute($request, 'instanceUrl'));
-        $this->assertEquals(self::TEST_INSTANCE_2_URL . '/api/data/', $this->readAttribute($request2, 'instanceUrl'));
+        $this->assertEquals(self::TEST_INSTANCE_URL . '/api/data/', $this->readAttribute($request, 'instanceApiUrl'));
+        $this->assertEquals(self::TEST_INSTANCE_2_URL . '/api/data/', $this->readAttribute($request2, 'instanceApiUrl'));
         $this->assertEquals(DynamicsConstants::API_VERSION, $this->readAttribute($request, 'apiVersion'));
         $this->assertEquals('v8.0', $this->readAttribute($request2, 'apiVersion'));
         
