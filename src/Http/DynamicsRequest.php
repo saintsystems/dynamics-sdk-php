@@ -252,7 +252,7 @@ class DynamicsRequest
 
         $result = $client->request(
             $this->requestType, 
-            $this->_getRequestUrl(), 
+            $this->getRequestUrl(), 
             [
                 'body' => $this->requestBody,
                 'stream' =>  $this->returnsStream,
@@ -302,7 +302,7 @@ class DynamicsRequest
 
         $promise = $client->requestAsync(
             $this->requestType,
-            $this->_getRequestUrl(),
+            $this->getRequestUrl(),
             [
                 'body' => $this->requestBody,
                 'stream' => $this->returnsStream,
@@ -354,7 +354,7 @@ class DynamicsRequest
 
             $client->request(
                 $this->requestType, 
-                $this->_getRequestUrl(), 
+                $this->getRequestUrl(), 
                 [
                     'body' => $this->requestBody,
                     'sink' => $file
@@ -416,7 +416,7 @@ class DynamicsRequest
     *
     * @return string request URL
     */
-    private function _getRequestUrl()
+    private function getRequestUrl()
     {
         return $this->apiVersion . $this->endpoint;
     }

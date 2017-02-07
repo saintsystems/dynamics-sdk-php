@@ -25,7 +25,7 @@ class DynamicsCollectionRequestTest extends TestCase
         $handler = GuzzleHttp\HandlerStack::create($mock);
         $this->client = new GuzzleHttp\Client(['handler' => $handler]);
 
-        $this->reflectedRequestUrlHandler = new ReflectionMethod('Microsoft\Dynamics\Http\DynamicsRequest', '_getRequestUrl');
+        $this->reflectedRequestUrlHandler = new ReflectionMethod('Microsoft\Dynamics\Http\DynamicsRequest', 'getRequestUrl');
         $this->reflectedRequestUrlHandler->setAccessible(true);
     }
 

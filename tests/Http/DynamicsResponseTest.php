@@ -52,7 +52,7 @@ class DynamicsResponseTest extends TestCase
     public function testDecodeBody()
     {
         //Temporarily make decodeBody() public
-        $reflectionMethod = new ReflectionMethod('Microsoft\Dynamics\Http\DynamicsResponse', '_decodeBody');
+        $reflectionMethod = new ReflectionMethod('Microsoft\Dynamics\Http\DynamicsResponse', 'decodeBody');
         $reflectionMethod->setAccessible(true);
 
         $response = new DynamicsResponse($this->request, json_encode($this->responseBody));
@@ -64,7 +64,7 @@ class DynamicsResponseTest extends TestCase
     public function testDecodeEmptyBody()
     {
         //Temporarily make decodeBody() public
-        $reflectionMethod = new ReflectionMethod('Microsoft\Dynamics\Http\DynamicsResponse', '_decodeBody');
+        $reflectionMethod = new ReflectionMethod('Microsoft\Dynamics\Http\DynamicsResponse', 'decodeBody');
         $reflectionMethod->setAccessible(true);
 
         $response = new DynamicsResponse($this->request);

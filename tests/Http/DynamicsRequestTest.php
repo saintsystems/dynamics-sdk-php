@@ -43,7 +43,7 @@ class DynamicsRequestTest extends TestCase
     public function testSetReturnType()
     {
         //Temporarily make getRequestUrl() public
-        $reflectionMethod = new ReflectionMethod('Microsoft\Dynamics\Http\DynamicsRequest', '_getRequestUrl');
+        $reflectionMethod = new ReflectionMethod('Microsoft\Dynamics\Http\DynamicsRequest', 'getRequestUrl');
         $reflectionMethod->setAccessible(true);
 
         $dynamics = new Dynamics();
@@ -141,7 +141,7 @@ class DynamicsRequestTest extends TestCase
     public function testGetRequestUrl()
     {
         //Temporarily make getRequestUrl() public
-        $reflectionMethod = new ReflectionMethod('Microsoft\Dynamics\Http\DynamicsRequest', '_getRequestUrl');
+        $reflectionMethod = new ReflectionMethod('Microsoft\Dynamics\Http\DynamicsRequest', 'getRequestUrl');
         $reflectionMethod->setAccessible(true);
 
         $requestUrl = $reflectionMethod->invokeArgs($this->requests[0], array());
