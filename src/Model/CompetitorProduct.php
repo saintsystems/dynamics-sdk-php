@@ -10,14 +10,14 @@
 * @copyright 2017 Saint Systems, LLC
 * @license   https://opensource.org/licenses/MIT MIT License
 * @version   GIT: 0.1.0
-* @link     https://www.microsoft.com/en-us/dynamics365/
+* @link      https://www.microsoft.com/en-us/dynamics365/
 */
 namespace Microsoft\Dynamics\Model;
 
 /**
 * CompetitorProduct class
 *
-* CompetitorProduct description
+* CompetitorProduct entity
 *
 * @category  Model
 * @package   Microsoft.Dynamics
@@ -35,7 +35,8 @@ class CompetitorProduct extends Entity
     protected $entity = 'competitorproducts';
 
     /**
-     * The primary key for the entity.
+     * The name of the attribute that is the primary id for the entity.
+     * competitorproductid from https://msdn.microsoft.com/en-us/library/mt607760.aspx
      *
      * @var string
      */

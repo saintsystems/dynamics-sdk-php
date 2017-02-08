@@ -81,6 +81,7 @@ class DynamicsInstanceTest extends DynamicsTestCase
     public function testDynamicsIncidentCollectionRequest()
     {
         $dynamics = new Dynamics();
+
         $dynamics->setInstanceUrl($this->instanceUrl)
                  ->setAccessToken($this->accessToken);
 
