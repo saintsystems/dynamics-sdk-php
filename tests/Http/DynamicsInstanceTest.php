@@ -50,7 +50,7 @@ class DynamicsInstanceTest extends DynamicsTestCase
                       ->setReturnType(Model\Lead::class)
                       ->execute();
 
-        //$this->log->info($lead->createdon);
+        // $this->log->info(print_r($lead));
 
         $this->assertEquals($leadId, $lead->id);
 
@@ -76,5 +76,26 @@ class DynamicsInstanceTest extends DynamicsTestCase
         $this->assertEquals('Adam', $lead->firstname);
         $this->assertEquals('adam@anderly.com', $lead->emailaddress1);
 
+    }
+
+    public function testDynamicsIncidentCollectionRequest()
+    {
+        $dynamics = new Dynamics();
+        $dynamics->setInstanceUrl($this->instanceUrl)
+                 ->setAccessToken($this->accessToken);
+
+        $cases = $dynamics->createCollectionRequest('GET', '/incidents')
+                      ->setReturnType(Model\Incident::class)
+                      ->execute();
+
+        $this->assertTrue(is_array($cases));
+
+        if (count($cases) > 0) {
+            $case = $cases[0];
+            //$this->log->info(print_r($case, true));
+            //$this->log->info(print_r($case, true));
+            $this->assertInstanceOf(Microsoft\Dynamics\Model\Incident::class, $case);
+        }
+        
     }
 }

@@ -17,8 +17,7 @@ namespace Microsoft\Dynamics\Model;
 /**
 * Lead class
 *
-* Prospect or potential sales opportunity. Leads are converted into accounts, contacts, 
-* or opportunities when they are qualified. Otherwise, they are deleted or archived.
+* Lead description
 *
 * @category  Model
 * @package   Microsoft.Dynamics
@@ -27,42 +26,18 @@ namespace Microsoft\Dynamics\Model;
 */
 class Lead extends Entity
 {
-    // protected $fillable = [
-    //     'address1_city',
-    //     'leadid',
-    //     'firstname',
-    //     'lastname',
-    //     'emailaddress1',
-    // ];
-    
-    // protected $casts = [
-    //     'address1_addresstypecode'    => 'integer',
-    //     'address1_latitude'           => 'double',
-    //     'address1_longitude'          => 'double',
-    //     'address1_shippingmethodcode' => 'integer',
-    //     'address1_utcoffset'          => 'integer',
-    //     'address2_addresstypecode'    => 'integer',
-    //     'address2_latitude'           => 'double',
-    //     'address2_longitude'          => 'double',
-    //     'address2_shippingmethodcode' => 'integer',
-    //     'address2_utcoffset'          => 'integer',
-    //     'budgetamount'                => 'float',
-    //     'budgetamount_base'           => 'float',
-    //     'budgetstatus'                => 'integer',
-    //     'confirminterest'             => 'boolean',
-    //     'new_donationamount'          => 'float',
-    //     // 'createdon'                   => 'timestamp'
-    // ];
-    
+     /**
+     * The entity set name associated with the entity.
+     * This is needed for API calls since this is the API endpoint for this Entity
+     *
+     * @var string
+     */
+    protected $entity = 'leads';
 
     /**
-    * Gets the emailaddress1
-    *
-    * @return string The emailaddress1
-    */
-    public function get_fullname()
-    {
-        return $this->properties["firstname"].' '.$this->properties["lastname"];
-    }
-
+     * The primary key for the entity.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'leadid';
 }

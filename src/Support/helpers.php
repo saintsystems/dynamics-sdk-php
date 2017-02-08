@@ -3,7 +3,7 @@
 use Microsoft\Dynamics\Support\Arr;
 use Microsoft\Dynamics\Support\Str;
 // use Illuminate\Support\Collection;
-// use Illuminate\Support\Debug\Dumper;
+use Microsoft\Dynamics\Support\Debug\Dumper;
 // use Illuminate\Contracts\Support\Htmlable;
 
 if (! function_exists('append_config')) {
@@ -486,22 +486,22 @@ if (! function_exists('data_set')) {
     }
 }
 
-// if (! function_exists('dd')) {
-//     /**
-//      * Dump the passed variables and end the script.
-//      *
-//      * @param  mixed
-//      * @return void
-//      */
-//     function dd()
-//     {
-//         array_map(function ($x) {
-//             (new Dumper)->dump($x);
-//         }, func_get_args());
+if (! function_exists('dd')) {
+    /**
+     * Dump the passed variables and end the script.
+     *
+     * @param  mixed
+     * @return void
+     */
+    function dd()
+    {
+        array_map(function ($x) {
+            (new Dumper)->dump($x);
+        }, func_get_args());
 
-//         die(1);
-//     }
-// }
+        die(1);
+    }
+}
 
 // if (! function_exists('e')) {
 //     /**

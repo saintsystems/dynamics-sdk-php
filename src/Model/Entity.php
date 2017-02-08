@@ -38,7 +38,7 @@ use Microsoft\Dynamics\Exception\MassAssignmentException;
 class Entity implements ArrayAccess
 {
     /**
-     * The entity name associated with the entity.
+     * The entity set name associated with the entity.
      *
      * @var string
      */
@@ -173,10 +173,6 @@ class Entity implements ArrayAccess
     */
     function __construct($properties = array())
     {
-        $classNameParts = explode('\\',get_class($this));
-        $className = strtolower(end($classNameParts));
-        $this->primaryKey = $className.$this->primaryKey;
-
         $this->bootIfNotBooted();
 
         $this->syncOriginal();
