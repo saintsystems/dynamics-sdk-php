@@ -36,7 +36,7 @@ class Contract extends Entity
 
     /**
      * The name of the attribute that is the primary id for the entity.
-     * contractid from https://msdn.microsoft.com/en-us/library/mt607760.aspx
+     * PrimaryIdAttribute from https://msdn.microsoft.com/en-us/library/mt607760.aspx
      *
      * @var string
      */
