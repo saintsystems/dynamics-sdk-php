@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * Category class
 *
@@ -32,7 +34,7 @@ class Category extends Entity
      *
      * @var string
      */
-    protected $entity = 'categories';
+    static $entity = 'categories';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class Category extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'categoryid';
+    static $primaryKey = 'categoryid';
 }

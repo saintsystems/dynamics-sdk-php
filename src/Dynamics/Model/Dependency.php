@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * Dependency class
 *
@@ -32,7 +34,7 @@ class Dependency extends Entity
      *
      * @var string
      */
-    protected $entity = 'dependencies';
+    static $entity = 'dependencies';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class Dependency extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'dependencyid';
+    static $primaryKey = 'dependencyid';
 }

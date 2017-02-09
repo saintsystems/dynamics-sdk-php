@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * UserSettings class
 *
@@ -32,7 +34,7 @@ class UserSettings extends Entity
      *
      * @var string
      */
-    protected $entity = 'usersettingscollection';
+    static $entity = 'usersettingscollection';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class UserSettings extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'systemuserid';
+    static $primaryKey = 'systemuserid';
 }

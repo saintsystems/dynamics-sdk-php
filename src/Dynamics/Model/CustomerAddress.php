@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * CustomerAddress class
 *
@@ -32,7 +34,7 @@ class CustomerAddress extends Entity
      *
      * @var string
      */
-    protected $entity = 'customeraddresses';
+    static $entity = 'customeraddresses';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class CustomerAddress extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'customeraddressid';
+    static $primaryKey = 'customeraddressid';
 }

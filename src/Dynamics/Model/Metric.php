@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * Metric class
 *
@@ -32,7 +34,7 @@ class Metric extends Entity
      *
      * @var string
      */
-    protected $entity = 'metrics';
+    static $entity = 'metrics';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class Metric extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'metricid';
+    static $primaryKey = 'metricid';
 }

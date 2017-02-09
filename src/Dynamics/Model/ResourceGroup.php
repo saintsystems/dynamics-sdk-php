@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * ResourceGroup class
 *
@@ -32,7 +34,7 @@ class ResourceGroup extends Entity
      *
      * @var string
      */
-    protected $entity = 'resourcegroups';
+    static $entity = 'resourcegroups';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class ResourceGroup extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'resourcegroupid';
+    static $primaryKey = 'resourcegroupid';
 }

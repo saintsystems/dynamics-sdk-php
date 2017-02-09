@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * RoleTemplatePrivileges class
 *
@@ -32,7 +34,7 @@ class RoleTemplatePrivileges extends Entity
      *
      * @var string
      */
-    protected $entity = 'roletemplateprivilegescollection';
+    static $entity = 'roletemplateprivilegescollection';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class RoleTemplatePrivileges extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'roletemplateprivilegeid';
+    static $primaryKey = 'roletemplateprivilegeid';
 }

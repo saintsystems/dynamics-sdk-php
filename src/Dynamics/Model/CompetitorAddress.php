@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * CompetitorAddress class
 *
@@ -32,7 +34,7 @@ class CompetitorAddress extends Entity
      *
      * @var string
      */
-    protected $entity = 'competitoraddresses';
+    static $entity = 'competitoraddresses';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class CompetitorAddress extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'competitoraddressid';
+    static $primaryKey = 'competitoraddressid';
 }

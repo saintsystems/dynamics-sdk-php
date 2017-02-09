@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * Queue class
 *
@@ -32,7 +34,7 @@ class Queue extends Entity
      *
      * @var string
      */
-    protected $entity = 'queues';
+    static $entity = 'queues';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class Queue extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'queueid';
+    static $primaryKey = 'queueid';
 }

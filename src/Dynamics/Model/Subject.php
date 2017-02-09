@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * Subject class
 *
@@ -32,7 +34,7 @@ class Subject extends Entity
      *
      * @var string
      */
-    protected $entity = 'subjects';
+    static $entity = 'subjects';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class Subject extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'subjectid';
+    static $primaryKey = 'subjectid';
 }

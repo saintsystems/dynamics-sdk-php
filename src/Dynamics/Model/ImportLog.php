@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * ImportLog class
 *
@@ -32,7 +34,7 @@ class ImportLog extends Entity
      *
      * @var string
      */
-    protected $entity = 'importlogs';
+    static $entity = 'importlogs';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class ImportLog extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'importlogid';
+    static $primaryKey = 'importlogid';
 }

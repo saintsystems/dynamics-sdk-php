@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * UserForm class
 *
@@ -32,7 +34,7 @@ class UserForm extends Entity
      *
      * @var string
      */
-    protected $entity = 'userforms';
+    static $entity = 'userforms';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class UserForm extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'userformid';
+    static $primaryKey = 'userformid';
 }

@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * InvalidDependency class
 *
@@ -32,7 +34,7 @@ class InvalidDependency extends Entity
      *
      * @var string
      */
-    protected $entity = 'invaliddependencies';
+    static $entity = 'invaliddependencies';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class InvalidDependency extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'invaliddependencyid';
+    static $primaryKey = 'invaliddependencyid';
 }

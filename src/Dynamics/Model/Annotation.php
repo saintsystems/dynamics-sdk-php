@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * Annotation class
 *
@@ -32,7 +34,7 @@ class Annotation extends Entity
      *
      * @var string
      */
-    protected $entity = 'annotations';
+    static $entity = 'annotations';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class Annotation extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'annotationid';
+    static $primaryKey = 'annotationid';
 }

@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * FieldPermission class
 *
@@ -32,7 +34,7 @@ class FieldPermission extends Entity
      *
      * @var string
      */
-    protected $entity = 'fieldpermissions';
+    static $entity = 'fieldpermissions';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class FieldPermission extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'fieldpermissionid';
+    static $primaryKey = 'fieldpermissionid';
 }

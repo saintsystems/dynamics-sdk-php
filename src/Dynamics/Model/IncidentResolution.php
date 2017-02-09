@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * IncidentResolution class
 *
@@ -32,7 +34,7 @@ class IncidentResolution extends Entity
      *
      * @var string
      */
-    protected $entity = 'incidentresolutions';
+    static $entity = 'incidentresolutions';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class IncidentResolution extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'activityid';
+    static $primaryKey = 'activityid';
 }

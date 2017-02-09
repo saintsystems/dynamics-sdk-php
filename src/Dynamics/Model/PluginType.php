@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * PluginType class
 *
@@ -32,7 +34,7 @@ class PluginType extends Entity
      *
      * @var string
      */
-    protected $entity = 'plugintypes';
+    static $entity = 'plugintypes';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class PluginType extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'plugintypeid';
+    static $primaryKey = 'plugintypeid';
 }

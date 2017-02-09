@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * PostLike class
 *
@@ -32,7 +34,7 @@ class PostLike extends Entity
      *
      * @var string
      */
-    protected $entity = 'postlikes';
+    static $entity = 'postlikes';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class PostLike extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'postlikeid';
+    static $primaryKey = 'postlikeid';
 }

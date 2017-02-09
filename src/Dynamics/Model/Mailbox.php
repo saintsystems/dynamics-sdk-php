@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * Mailbox class
 *
@@ -32,7 +34,7 @@ class Mailbox extends Entity
      *
      * @var string
      */
-    protected $entity = 'mailboxes';
+    static $entity = 'mailboxes';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class Mailbox extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'mailboxid';
+    static $primaryKey = 'mailboxid';
 }

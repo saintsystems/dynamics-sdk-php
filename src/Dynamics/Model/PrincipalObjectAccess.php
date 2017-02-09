@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * PrincipalObjectAccess class
 *
@@ -32,7 +34,7 @@ class PrincipalObjectAccess extends Entity
      *
      * @var string
      */
-    protected $entity = 'principalobjectaccessset';
+    static $entity = 'principalobjectaccessset';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class PrincipalObjectAccess extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'principalobjectaccessid';
+    static $primaryKey = 'principalobjectaccessid';
 }

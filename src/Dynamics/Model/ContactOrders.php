@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * ContactOrders class
 *
@@ -32,7 +34,7 @@ class ContactOrders extends Entity
      *
      * @var string
      */
-    protected $entity = 'contactorderscollection';
+    static $entity = 'contactorderscollection';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class ContactOrders extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'contactorderid';
+    static $primaryKey = 'contactorderid';
 }

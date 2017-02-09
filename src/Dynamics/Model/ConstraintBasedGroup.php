@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * ConstraintBasedGroup class
 *
@@ -32,7 +34,7 @@ class ConstraintBasedGroup extends Entity
      *
      * @var string
      */
-    protected $entity = 'constraintbasedgroups';
+    static $entity = 'constraintbasedgroups';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class ConstraintBasedGroup extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'constraintbasedgroupid';
+    static $primaryKey = 'constraintbasedgroupid';
 }

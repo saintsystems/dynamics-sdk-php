@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * SLA class
 *
@@ -32,7 +34,7 @@ class SLA extends Entity
      *
      * @var string
      */
-    protected $entity = 'slas';
+    static $entity = 'slas';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class SLA extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'slaid';
+    static $primaryKey = 'slaid';
 }

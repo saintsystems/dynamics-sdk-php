@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * ConnectionRole class
 *
@@ -32,7 +34,7 @@ class ConnectionRole extends Entity
      *
      * @var string
      */
-    protected $entity = 'connectionroles';
+    static $entity = 'connectionroles';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class ConnectionRole extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'connectionroleid';
+    static $primaryKey = 'connectionroleid';
 }

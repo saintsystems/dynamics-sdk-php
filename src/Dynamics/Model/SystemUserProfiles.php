@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * SystemUserProfiles class
 *
@@ -32,7 +34,7 @@ class SystemUserProfiles extends Entity
      *
      * @var string
      */
-    protected $entity = 'systemuserprofilescollection';
+    static $entity = 'systemuserprofilescollection';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class SystemUserProfiles extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'systemuserprofileid';
+    static $primaryKey = 'systemuserprofileid';
 }

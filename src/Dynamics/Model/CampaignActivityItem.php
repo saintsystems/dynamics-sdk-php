@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * CampaignActivityItem class
 *
@@ -32,7 +34,7 @@ class CampaignActivityItem extends Entity
      *
      * @var string
      */
-    protected $entity = 'campaignactivityitems';
+    static $entity = 'campaignactivityitems';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class CampaignActivityItem extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'campaignactivityitemid';
+    static $primaryKey = 'campaignactivityitemid';
 }

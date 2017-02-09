@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * msdyn_knowledgearticle_knowledgearticle class
 *
@@ -32,7 +34,7 @@ class msdyn_knowledgearticle_knowledgearticle extends Entity
      *
      * @var string
      */
-    protected $entity = 'msdyn_knowledgearticle_knowledgearticleset';
+    static $entity = 'msdyn_knowledgearticle_knowledgearticleset';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class msdyn_knowledgearticle_knowledgearticle extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'msdyn_knowledgearticle_knowledgearticleid';
+    static $primaryKey = 'msdyn_knowledgearticle_knowledgearticleid';
 }

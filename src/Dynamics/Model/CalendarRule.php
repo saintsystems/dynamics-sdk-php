@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * CalendarRule class
 *
@@ -32,7 +34,7 @@ class CalendarRule extends Entity
      *
      * @var string
      */
-    protected $entity = 'calendarrules';
+    static $entity = 'calendarrules';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class CalendarRule extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'calendarruleid';
+    static $primaryKey = 'calendarruleid';
 }

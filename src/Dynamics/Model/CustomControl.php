@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * CustomControl class
 *
@@ -32,7 +34,7 @@ class CustomControl extends Entity
      *
      * @var string
      */
-    protected $entity = 'customcontrols';
+    static $entity = 'customcontrols';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class CustomControl extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'customcontrolid';
+    static $primaryKey = 'customcontrolid';
 }

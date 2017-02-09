@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * Privilege class
 *
@@ -32,7 +34,7 @@ class Privilege extends Entity
      *
      * @var string
      */
-    protected $entity = 'privileges';
+    static $entity = 'privileges';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class Privilege extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'privilegeid';
+    static $primaryKey = 'privilegeid';
 }

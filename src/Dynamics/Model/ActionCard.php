@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * ActionCard class
 *
@@ -32,7 +34,7 @@ class ActionCard extends Entity
      *
      * @var string
      */
-    protected $entity = 'actioncards';
+    static $entity = 'actioncards';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class ActionCard extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'actioncardid';
+    static $primaryKey = 'actioncardid';
 }

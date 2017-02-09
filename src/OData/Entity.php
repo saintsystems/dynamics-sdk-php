@@ -47,7 +47,7 @@ class Entity implements ArrayAccess
      *
      * @var string
      */
-    protected $primaryKey = 'id';
+    // protected $primaryKey = 'id';
 
     /**
      * The number of entities to return for pagination.
@@ -354,7 +354,7 @@ class Entity implements ArrayAccess
      */
     public function getKeyName()
     {
-        return $this->primaryKey;
+        return static::$primaryKey;
     }
 
     /**
@@ -1324,7 +1324,7 @@ class Entity implements ArrayAccess
         }
 
         if ($key === 'id') {
-            $key = $this->primaryKey;
+            $key = static::$primaryKey;
         }
 
         if (array_key_exists($key, $this->properties) || $this->hasGetMutator($key)) {

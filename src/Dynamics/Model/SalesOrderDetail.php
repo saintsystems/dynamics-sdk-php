@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * SalesOrderDetail class
 *
@@ -32,7 +34,7 @@ class SalesOrderDetail extends Entity
      *
      * @var string
      */
-    protected $entity = 'salesorderdetails';
+    static $entity = 'salesorderdetails';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class SalesOrderDetail extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'salesorderdetailid';
+    static $primaryKey = 'salesorderdetailid';
 }

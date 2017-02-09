@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * LeadProduct class
 *
@@ -32,7 +34,7 @@ class LeadProduct extends Entity
      *
      * @var string
      */
-    protected $entity = 'leadproducts';
+    static $entity = 'leadproducts';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class LeadProduct extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'leadproductid';
+    static $primaryKey = 'leadproductid';
 }

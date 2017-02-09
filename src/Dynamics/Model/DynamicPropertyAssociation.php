@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * DynamicPropertyAssociation class
 *
@@ -32,7 +34,7 @@ class DynamicPropertyAssociation extends Entity
      *
      * @var string
      */
-    protected $entity = 'dynamicpropertyassociations';
+    static $entity = 'dynamicpropertyassociations';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class DynamicPropertyAssociation extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'dynamicpropertyassociationid';
+    static $primaryKey = 'dynamicpropertyassociationid';
 }

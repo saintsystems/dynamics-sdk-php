@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * DocumentTemplate class
 *
@@ -32,7 +34,7 @@ class DocumentTemplate extends Entity
      *
      * @var string
      */
-    protected $entity = 'documenttemplates';
+    static $entity = 'documenttemplates';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class DocumentTemplate extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'documenttemplateid';
+    static $primaryKey = 'documenttemplateid';
 }

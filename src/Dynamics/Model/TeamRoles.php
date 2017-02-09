@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * TeamRoles class
 *
@@ -32,7 +34,7 @@ class TeamRoles extends Entity
      *
      * @var string
      */
-    protected $entity = 'teamrolescollection';
+    static $entity = 'teamrolescollection';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class TeamRoles extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'teamroleid';
+    static $primaryKey = 'teamroleid';
 }

@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * FieldSecurityProfile class
 *
@@ -32,7 +34,7 @@ class FieldSecurityProfile extends Entity
      *
      * @var string
      */
-    protected $entity = 'fieldsecurityprofiles';
+    static $entity = 'fieldsecurityprofiles';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class FieldSecurityProfile extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'fieldsecurityprofileid';
+    static $primaryKey = 'fieldsecurityprofileid';
 }

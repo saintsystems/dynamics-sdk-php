@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * SubscriptionStatisticsOffline class
 *
@@ -32,7 +34,7 @@ class SubscriptionStatisticsOffline extends Entity
      *
      * @var string
      */
-    protected $entity = 'subscriptionstatisticsofflineset';
+    static $entity = 'subscriptionstatisticsofflineset';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class SubscriptionStatisticsOffline extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'subscriptionid';
+    static $primaryKey = 'subscriptionid';
 }

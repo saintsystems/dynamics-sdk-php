@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * EntitlementTemplateChannel class
 *
@@ -32,7 +34,7 @@ class EntitlementTemplateChannel extends Entity
      *
      * @var string
      */
-    protected $entity = 'entitlementtemplatechannels';
+    static $entity = 'entitlementtemplatechannels';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class EntitlementTemplateChannel extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'entitlementtemplatechannelid';
+    static $primaryKey = 'entitlementtemplatechannelid';
 }

@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * BulkDeleteFailure class
 *
@@ -32,7 +34,7 @@ class BulkDeleteFailure extends Entity
      *
      * @var string
      */
-    protected $entity = 'bulkdeletefailures';
+    static $entity = 'bulkdeletefailures';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class BulkDeleteFailure extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'bulkdeletefailureid';
+    static $primaryKey = 'bulkdeletefailureid';
 }

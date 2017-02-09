@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * AccountLeads class
 *
@@ -32,7 +34,7 @@ class AccountLeads extends Entity
      *
      * @var string
      */
-    protected $entity = 'accountleadscollection';
+    static $entity = 'accountleadscollection';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class AccountLeads extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'accountleadid';
+    static $primaryKey = 'accountleadid';
 }

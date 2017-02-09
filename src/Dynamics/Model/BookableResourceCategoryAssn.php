@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * BookableResourceCategoryAssn class
 *
@@ -32,7 +34,7 @@ class BookableResourceCategoryAssn extends Entity
      *
      * @var string
      */
-    protected $entity = 'bookableresourcecategoryassns';
+    static $entity = 'bookableresourcecategoryassns';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class BookableResourceCategoryAssn extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'bookableresourcecategoryassnid';
+    static $primaryKey = 'bookableresourcecategoryassnid';
 }

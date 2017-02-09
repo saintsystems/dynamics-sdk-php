@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * DuplicateRecord class
 *
@@ -32,7 +34,7 @@ class DuplicateRecord extends Entity
      *
      * @var string
      */
-    protected $entity = 'duplicaterecords';
+    static $entity = 'duplicaterecords';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class DuplicateRecord extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'duplicateid';
+    static $primaryKey = 'duplicateid';
 }

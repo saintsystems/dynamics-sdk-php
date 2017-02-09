@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * ExchangeSyncIdMapping class
 *
@@ -32,7 +34,7 @@ class ExchangeSyncIdMapping extends Entity
      *
      * @var string
      */
-    protected $entity = 'exchangesyncidmappings';
+    static $entity = 'exchangesyncidmappings';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class ExchangeSyncIdMapping extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'exchangesyncidmappingid';
+    static $primaryKey = 'exchangesyncidmappingid';
 }

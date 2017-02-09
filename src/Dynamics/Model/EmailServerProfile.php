@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * EmailServerProfile class
 *
@@ -32,7 +34,7 @@ class EmailServerProfile extends Entity
      *
      * @var string
      */
-    protected $entity = 'emailserverprofiles';
+    static $entity = 'emailserverprofiles';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class EmailServerProfile extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'emailserverprofileid';
+    static $primaryKey = 'emailserverprofileid';
 }

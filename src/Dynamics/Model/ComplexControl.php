@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * ComplexControl class
 *
@@ -32,7 +34,7 @@ class ComplexControl extends Entity
      *
      * @var string
      */
-    protected $entity = 'complexcontrols';
+    static $entity = 'complexcontrols';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class ComplexControl extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'complexcontrolid';
+    static $primaryKey = 'complexcontrolid';
 }

@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * Entitlement class
 *
@@ -32,7 +34,7 @@ class Entitlement extends Entity
      *
      * @var string
      */
-    protected $entity = 'entitlements';
+    static $entity = 'entitlements';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class Entitlement extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'entitlementid';
+    static $primaryKey = 'entitlementid';
 }

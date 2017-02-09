@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * Territory class
 *
@@ -32,7 +34,7 @@ class Territory extends Entity
      *
      * @var string
      */
-    protected $entity = 'territories';
+    static $entity = 'territories';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class Territory extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'territoryid';
+    static $primaryKey = 'territoryid';
 }

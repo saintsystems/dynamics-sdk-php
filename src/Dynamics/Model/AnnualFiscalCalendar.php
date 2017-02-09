@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * AnnualFiscalCalendar class
 *
@@ -32,7 +34,7 @@ class AnnualFiscalCalendar extends Entity
      *
      * @var string
      */
-    protected $entity = 'annualfiscalcalendars';
+    static $entity = 'annualfiscalcalendars';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class AnnualFiscalCalendar extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'userfiscalcalendarid';
+    static $primaryKey = 'userfiscalcalendarid';
 }

@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * DiscountType class
 *
@@ -32,7 +34,7 @@ class DiscountType extends Entity
      *
      * @var string
      */
-    protected $entity = 'discounttypes';
+    static $entity = 'discounttypes';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class DiscountType extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'discounttypeid';
+    static $primaryKey = 'discounttypeid';
 }

@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * Site class
 *
@@ -32,7 +34,7 @@ class Site extends Entity
      *
      * @var string
      */
-    protected $entity = 'sites';
+    static $entity = 'sites';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class Site extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'siteid';
+    static $primaryKey = 'siteid';
 }

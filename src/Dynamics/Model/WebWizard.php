@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * WebWizard class
 *
@@ -32,7 +34,7 @@ class WebWizard extends Entity
      *
      * @var string
      */
-    protected $entity = 'webwizards';
+    static $entity = 'webwizards';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class WebWizard extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'webwizardid';
+    static $primaryKey = 'webwizardid';
 }

@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * msdyn_PostRuleConfig class
 *
@@ -32,7 +34,7 @@ class msdyn_PostRuleConfig extends Entity
      *
      * @var string
      */
-    protected $entity = 'msdyn_postruleconfigs';
+    static $entity = 'msdyn_postruleconfigs';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class msdyn_PostRuleConfig extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'msdyn_postruleconfigid';
+    static $primaryKey = 'msdyn_postruleconfigid';
 }

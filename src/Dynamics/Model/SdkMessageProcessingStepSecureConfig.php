@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * SdkMessageProcessingStepSecureConfig class
 *
@@ -32,7 +34,7 @@ class SdkMessageProcessingStepSecureConfig extends Entity
      *
      * @var string
      */
-    protected $entity = 'sdkmessageprocessingstepsecureconfigs';
+    static $entity = 'sdkmessageprocessingstepsecureconfigs';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class SdkMessageProcessingStepSecureConfig extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'sdkmessageprocessingstepsecureconfigid';
+    static $primaryKey = 'sdkmessageprocessingstepsecureconfigid';
 }

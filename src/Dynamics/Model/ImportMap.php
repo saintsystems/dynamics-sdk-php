@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * ImportMap class
 *
@@ -32,7 +34,7 @@ class ImportMap extends Entity
      *
      * @var string
      */
-    protected $entity = 'importmaps';
+    static $entity = 'importmaps';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class ImportMap extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'importmapid';
+    static $primaryKey = 'importmapid';
 }

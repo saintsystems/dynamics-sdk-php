@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * ResourceSpec class
 *
@@ -32,7 +34,7 @@ class ResourceSpec extends Entity
      *
      * @var string
      */
-    protected $entity = 'resourcespecs';
+    static $entity = 'resourcespecs';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class ResourceSpec extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'resourcespecid';
+    static $primaryKey = 'resourcespecid';
 }

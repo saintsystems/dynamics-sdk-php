@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * SubscriptionManuallyTrackedObject class
 *
@@ -32,7 +34,7 @@ class SubscriptionManuallyTrackedObject extends Entity
      *
      * @var string
      */
-    protected $entity = 'subscriptionmanuallytrackedobjects';
+    static $entity = 'subscriptionmanuallytrackedobjects';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class SubscriptionManuallyTrackedObject extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'subscriptionmanuallytrackedobjectid';
+    static $primaryKey = 'subscriptionmanuallytrackedobjectid';
 }

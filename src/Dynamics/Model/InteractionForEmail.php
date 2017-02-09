@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * InteractionForEmail class
 *
@@ -32,7 +34,7 @@ class InteractionForEmail extends Entity
      *
      * @var string
      */
-    protected $entity = 'interactionforemails';
+    static $entity = 'interactionforemails';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class InteractionForEmail extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'interactionforemailid';
+    static $primaryKey = 'interactionforemailid';
 }

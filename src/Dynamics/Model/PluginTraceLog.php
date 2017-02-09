@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * PluginTraceLog class
 *
@@ -32,7 +34,7 @@ class PluginTraceLog extends Entity
      *
      * @var string
      */
-    protected $entity = 'plugintracelogs';
+    static $entity = 'plugintracelogs';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class PluginTraceLog extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'plugintracelogid';
+    static $primaryKey = 'plugintracelogid';
 }

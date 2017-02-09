@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * RatingValue class
 *
@@ -32,7 +34,7 @@ class RatingValue extends Entity
      *
      * @var string
      */
-    protected $entity = 'ratingvalues';
+    static $entity = 'ratingvalues';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class RatingValue extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'ratingvalueid';
+    static $primaryKey = 'ratingvalueid';
 }

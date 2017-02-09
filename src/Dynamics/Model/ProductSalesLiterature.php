@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * ProductSalesLiterature class
 *
@@ -32,7 +34,7 @@ class ProductSalesLiterature extends Entity
      *
      * @var string
      */
-    protected $entity = 'productsalesliteratures';
+    static $entity = 'productsalesliteratures';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class ProductSalesLiterature extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'productsalesliteratureid';
+    static $primaryKey = 'productsalesliteratureid';
 }

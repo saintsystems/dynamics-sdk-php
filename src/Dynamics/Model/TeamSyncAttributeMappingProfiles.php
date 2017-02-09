@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * TeamSyncAttributeMappingProfiles class
 *
@@ -32,7 +34,7 @@ class TeamSyncAttributeMappingProfiles extends Entity
      *
      * @var string
      */
-    protected $entity = 'teamsyncattributemappingprofilescollection';
+    static $entity = 'teamsyncattributemappingprofilescollection';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class TeamSyncAttributeMappingProfiles extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'teamsyncattributemappingprofileid';
+    static $primaryKey = 'teamsyncattributemappingprofileid';
 }

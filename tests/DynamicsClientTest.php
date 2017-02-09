@@ -11,6 +11,12 @@ use Microsoft\Dynamics\Tests\DynamicsTestCase;
 
 class DynamicsClientTest extends DynamicsTestCase
 {
+    public function setUp()
+    {
+        parent::setUp();
+        $this->markTestSkipped();
+    }
+
     public function testDynamicsClientConstructor()
     {
         $dynamicsClient = new DynamicsClient('https://contoso.crm.dynamics.com/', function($requestMessage) {

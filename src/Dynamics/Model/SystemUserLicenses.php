@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * SystemUserLicenses class
 *
@@ -32,7 +34,7 @@ class SystemUserLicenses extends Entity
      *
      * @var string
      */
-    protected $entity = 'systemuserlicensescollection';
+    static $entity = 'systemuserlicensescollection';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class SystemUserLicenses extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'systemuserlicenseid';
+    static $primaryKey = 'systemuserlicenseid';
 }

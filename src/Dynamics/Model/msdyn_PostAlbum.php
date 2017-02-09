@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * msdyn_PostAlbum class
 *
@@ -32,7 +34,7 @@ class msdyn_PostAlbum extends Entity
      *
      * @var string
      */
-    protected $entity = 'msdyn_postalbums';
+    static $entity = 'msdyn_postalbums';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class msdyn_PostAlbum extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'msdyn_postalbumid';
+    static $primaryKey = 'msdyn_postalbumid';
 }

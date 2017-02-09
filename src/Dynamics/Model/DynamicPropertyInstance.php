@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * DynamicPropertyInstance class
 *
@@ -32,7 +34,7 @@ class DynamicPropertyInstance extends Entity
      *
      * @var string
      */
-    protected $entity = 'dynamicpropertyinstances';
+    static $entity = 'dynamicpropertyinstances';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class DynamicPropertyInstance extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'dynamicpropertyinstanceid';
+    static $primaryKey = 'dynamicpropertyinstanceid';
 }

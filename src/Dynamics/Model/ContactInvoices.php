@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * ContactInvoices class
 *
@@ -32,7 +34,7 @@ class ContactInvoices extends Entity
      *
      * @var string
      */
-    protected $entity = 'contactinvoicescollection';
+    static $entity = 'contactinvoicescollection';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class ContactInvoices extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'contactinvoiceid';
+    static $primaryKey = 'contactinvoiceid';
 }

@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * Invoice class
 *
@@ -32,7 +34,7 @@ class Invoice extends Entity
      *
      * @var string
      */
-    protected $entity = 'invoices';
+    static $entity = 'invoices';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class Invoice extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'invoiceid';
+    static $primaryKey = 'invoiceid';
 }

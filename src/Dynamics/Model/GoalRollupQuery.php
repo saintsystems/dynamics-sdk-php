@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * GoalRollupQuery class
 *
@@ -32,7 +34,7 @@ class GoalRollupQuery extends Entity
      *
      * @var string
      */
-    protected $entity = 'goalrollupqueries';
+    static $entity = 'goalrollupqueries';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class GoalRollupQuery extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'goalrollupqueryid';
+    static $primaryKey = 'goalrollupqueryid';
 }

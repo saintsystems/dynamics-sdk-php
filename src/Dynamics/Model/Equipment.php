@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * Equipment class
 *
@@ -32,7 +34,7 @@ class Equipment extends Entity
      *
      * @var string
      */
-    protected $entity = 'equipments';
+    static $entity = 'equipments';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class Equipment extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'equipmentid';
+    static $primaryKey = 'equipmentid';
 }

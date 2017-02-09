@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * ServiceContractContacts class
 *
@@ -32,7 +34,7 @@ class ServiceContractContacts extends Entity
      *
      * @var string
      */
-    protected $entity = 'servicecontractcontactscollection';
+    static $entity = 'servicecontractcontactscollection';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class ServiceContractContacts extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'servicecontractcontactid';
+    static $primaryKey = 'servicecontractcontactid';
 }

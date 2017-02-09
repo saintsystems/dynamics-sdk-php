@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * Characteristic class
 *
@@ -32,7 +34,7 @@ class Characteristic extends Entity
      *
      * @var string
      */
-    protected $entity = 'characteristics';
+    static $entity = 'characteristics';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class Characteristic extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'characteristicid';
+    static $primaryKey = 'characteristicid';
 }

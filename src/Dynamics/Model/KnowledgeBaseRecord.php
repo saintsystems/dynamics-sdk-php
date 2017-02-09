@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * KnowledgeBaseRecord class
 *
@@ -32,7 +34,7 @@ class KnowledgeBaseRecord extends Entity
      *
      * @var string
      */
-    protected $entity = 'knowledgebaserecords';
+    static $entity = 'knowledgebaserecords';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class KnowledgeBaseRecord extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'knowledgebaserecordid';
+    static $primaryKey = 'knowledgebaserecordid';
 }

@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * KbArticleComment class
 *
@@ -32,7 +34,7 @@ class KbArticleComment extends Entity
      *
      * @var string
      */
-    protected $entity = 'kbarticlecomments';
+    static $entity = 'kbarticlecomments';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class KbArticleComment extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'kbarticlecommentid';
+    static $primaryKey = 'kbarticlecommentid';
 }

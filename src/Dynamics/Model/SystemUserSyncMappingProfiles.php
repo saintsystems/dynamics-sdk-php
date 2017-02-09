@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * SystemUserSyncMappingProfiles class
 *
@@ -32,7 +34,7 @@ class SystemUserSyncMappingProfiles extends Entity
      *
      * @var string
      */
-    protected $entity = 'systemusersyncmappingprofilescollection';
+    static $entity = 'systemusersyncmappingprofilescollection';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class SystemUserSyncMappingProfiles extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'systemusersyncmappingprofileid';
+    static $primaryKey = 'systemusersyncmappingprofileid';
 }

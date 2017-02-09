@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * Service class
 *
@@ -32,7 +34,7 @@ class Service extends Entity
      *
      * @var string
      */
-    protected $entity = 'services';
+    static $entity = 'services';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class Service extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'serviceid';
+    static $primaryKey = 'serviceid';
 }

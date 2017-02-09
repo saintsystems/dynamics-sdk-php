@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * msdyn_wallsavedquery class
 *
@@ -32,7 +34,7 @@ class msdyn_wallsavedquery extends Entity
      *
      * @var string
      */
-    protected $entity = 'msdyn_wallsavedqueries';
+    static $entity = 'msdyn_wallsavedqueries';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class msdyn_wallsavedquery extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'msdyn_wallsavedqueryid';
+    static $primaryKey = 'msdyn_wallsavedqueryid';
 }

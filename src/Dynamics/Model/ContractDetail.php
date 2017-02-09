@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * ContractDetail class
 *
@@ -32,7 +34,7 @@ class ContractDetail extends Entity
      *
      * @var string
      */
-    protected $entity = 'contractdetails';
+    static $entity = 'contractdetails';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class ContractDetail extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'contractdetailid';
+    static $primaryKey = 'contractdetailid';
 }

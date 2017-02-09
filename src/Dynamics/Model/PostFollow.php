@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * PostFollow class
 *
@@ -32,7 +34,7 @@ class PostFollow extends Entity
      *
      * @var string
      */
-    protected $entity = 'postfollows';
+    static $entity = 'postfollows';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class PostFollow extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'postfollowid';
+    static $primaryKey = 'postfollowid';
 }

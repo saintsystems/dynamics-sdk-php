@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * ActivityParty class
 *
@@ -32,7 +34,7 @@ class ActivityParty extends Entity
      *
      * @var string
      */
-    protected $entity = 'activityparties';
+    static $entity = 'activityparties';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class ActivityParty extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'activitypartyid';
+    static $primaryKey = 'activitypartyid';
 }

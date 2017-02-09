@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * Owner class
 *
@@ -32,7 +34,7 @@ class Owner extends Entity
      *
      * @var string
      */
-    protected $entity = 'owners';
+    static $entity = 'owners';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class Owner extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'ownerid';
+    static $primaryKey = 'ownerid';
 }

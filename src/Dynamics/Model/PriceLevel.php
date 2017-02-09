@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * PriceLevel class
 *
@@ -32,7 +34,7 @@ class PriceLevel extends Entity
      *
      * @var string
      */
-    protected $entity = 'pricelevels';
+    static $entity = 'pricelevels';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class PriceLevel extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'pricelevelid';
+    static $primaryKey = 'pricelevelid';
 }

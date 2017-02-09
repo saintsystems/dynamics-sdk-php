@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * ContactQuotes class
 *
@@ -32,7 +34,7 @@ class ContactQuotes extends Entity
      *
      * @var string
      */
-    protected $entity = 'contactquotescollection';
+    static $entity = 'contactquotescollection';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class ContactQuotes extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'contactquoteid';
+    static $primaryKey = 'contactquoteid';
 }

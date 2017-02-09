@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * ImportFile class
 *
@@ -32,7 +34,7 @@ class ImportFile extends Entity
      *
      * @var string
      */
-    protected $entity = 'importfiles';
+    static $entity = 'importfiles';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class ImportFile extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'importfileid';
+    static $primaryKey = 'importfileid';
 }

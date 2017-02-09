@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * SubscriptionSyncEntryOffline class
 *
@@ -32,7 +34,7 @@ class SubscriptionSyncEntryOffline extends Entity
      *
      * @var string
      */
-    protected $entity = 'subscriptionsyncentriesoffline';
+    static $entity = 'subscriptionsyncentriesoffline';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class SubscriptionSyncEntryOffline extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'subscriptionid';
+    static $primaryKey = 'subscriptionid';
 }

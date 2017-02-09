@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * ChannelAccessProfileEntityAccessLevel class
 *
@@ -32,7 +34,7 @@ class ChannelAccessProfileEntityAccessLevel extends Entity
      *
      * @var string
      */
-    protected $entity = 'channelaccessprofileentityaccesslevels';
+    static $entity = 'channelaccessprofileentityaccesslevels';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class ChannelAccessProfileEntityAccessLevel extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'channelaccessprofileentityaccesslevelid';
+    static $primaryKey = 'channelaccessprofileentityaccesslevelid';
 }

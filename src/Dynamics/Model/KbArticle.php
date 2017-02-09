@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * KbArticle class
 *
@@ -32,7 +34,7 @@ class KbArticle extends Entity
      *
      * @var string
      */
-    protected $entity = 'kbarticles';
+    static $entity = 'kbarticles';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class KbArticle extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'kbarticleid';
+    static $primaryKey = 'kbarticleid';
 }

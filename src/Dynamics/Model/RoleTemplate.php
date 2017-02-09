@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * RoleTemplate class
 *
@@ -32,7 +34,7 @@ class RoleTemplate extends Entity
      *
      * @var string
      */
-    protected $entity = 'roletemplates';
+    static $entity = 'roletemplates';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class RoleTemplate extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'roletemplateid';
+    static $primaryKey = 'roletemplateid';
 }

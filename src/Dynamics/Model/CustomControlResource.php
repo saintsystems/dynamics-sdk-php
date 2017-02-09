@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * CustomControlResource class
 *
@@ -32,7 +34,7 @@ class CustomControlResource extends Entity
      *
      * @var string
      */
-    protected $entity = 'customcontrolresources';
+    static $entity = 'customcontrolresources';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class CustomControlResource extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'customcontrolresourceid';
+    static $primaryKey = 'customcontrolresourceid';
 }

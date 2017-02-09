@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * Attachment class
 *
@@ -32,7 +34,7 @@ class Attachment extends Entity
      *
      * @var string
      */
-    protected $entity = 'attachments';
+    static $entity = 'attachments';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class Attachment extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'attachmentid';
+    static $primaryKey = 'attachmentid';
 }

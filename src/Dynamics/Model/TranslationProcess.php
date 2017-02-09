@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * TranslationProcess class
 *
@@ -32,7 +34,7 @@ class TranslationProcess extends Entity
      *
      * @var string
      */
-    protected $entity = 'translationprocesses';
+    static $entity = 'translationprocesses';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class TranslationProcess extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'businessprocessflowinstanceid';
+    static $primaryKey = 'businessprocessflowinstanceid';
 }

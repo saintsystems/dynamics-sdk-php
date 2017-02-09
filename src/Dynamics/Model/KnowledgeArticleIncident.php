@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * KnowledgeArticleIncident class
 *
@@ -32,7 +34,7 @@ class KnowledgeArticleIncident extends Entity
      *
      * @var string
      */
-    protected $entity = 'knowledgearticleincidents';
+    static $entity = 'knowledgearticleincidents';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class KnowledgeArticleIncident extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'knowledgearticleincidentid';
+    static $primaryKey = 'knowledgearticleincidentid';
 }

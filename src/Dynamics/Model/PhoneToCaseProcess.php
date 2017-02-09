@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * PhoneToCaseProcess class
 *
@@ -32,7 +34,7 @@ class PhoneToCaseProcess extends Entity
      *
      * @var string
      */
-    protected $entity = 'phonetocaseprocesses';
+    static $entity = 'phonetocaseprocesses';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class PhoneToCaseProcess extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'businessprocessflowinstanceid';
+    static $primaryKey = 'businessprocessflowinstanceid';
 }

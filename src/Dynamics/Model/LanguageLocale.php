@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * LanguageLocale class
 *
@@ -32,7 +34,7 @@ class LanguageLocale extends Entity
      *
      * @var string
      */
-    protected $entity = 'languagelocale';
+    static $entity = 'languagelocale';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class LanguageLocale extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'languagelocaleid';
+    static $primaryKey = 'languagelocaleid';
 }

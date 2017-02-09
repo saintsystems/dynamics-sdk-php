@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * PublisherAddress class
 *
@@ -32,7 +34,7 @@ class PublisherAddress extends Entity
      *
      * @var string
      */
-    protected $entity = 'publisheraddresses';
+    static $entity = 'publisheraddresses';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class PublisherAddress extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'publisheraddressid';
+    static $primaryKey = 'publisheraddressid';
 }

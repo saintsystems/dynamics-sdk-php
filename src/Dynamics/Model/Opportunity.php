@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * Opportunity class
 *
@@ -32,7 +34,7 @@ class Opportunity extends Entity
      *
      * @var string
      */
-    protected $entity = 'opportunities';
+    static $entity = 'opportunities';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class Opportunity extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'opportunityid';
+    static $primaryKey = 'opportunityid';
 }

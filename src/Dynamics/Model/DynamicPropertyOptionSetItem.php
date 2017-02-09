@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * DynamicPropertyOptionSetItem class
 *
@@ -32,7 +34,7 @@ class DynamicPropertyOptionSetItem extends Entity
      *
      * @var string
      */
-    protected $entity = 'dynamicpropertyoptionsetitems';
+    static $entity = 'dynamicpropertyoptionsetitems';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class DynamicPropertyOptionSetItem extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'dynamicpropertyoptionsetvalueid';
+    static $primaryKey = 'dynamicpropertyoptionsetvalueid';
 }

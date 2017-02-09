@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * EntitlementTemplateProducts class
 *
@@ -32,7 +34,7 @@ class EntitlementTemplateProducts extends Entity
      *
      * @var string
      */
-    protected $entity = 'entitlementtemplateproductscollection';
+    static $entity = 'entitlementtemplateproductscollection';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class EntitlementTemplateProducts extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'entitlementtemplateproductid';
+    static $primaryKey = 'entitlementtemplateproductid';
 }

@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * Theme class
 *
@@ -32,7 +34,7 @@ class Theme extends Entity
      *
      * @var string
      */
-    protected $entity = 'themes';
+    static $entity = 'themes';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class Theme extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'themeid';
+    static $primaryKey = 'themeid';
 }

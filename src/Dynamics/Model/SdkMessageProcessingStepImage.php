@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * SdkMessageProcessingStepImage class
 *
@@ -32,7 +34,7 @@ class SdkMessageProcessingStepImage extends Entity
      *
      * @var string
      */
-    protected $entity = 'sdkmessageprocessingstepimages';
+    static $entity = 'sdkmessageprocessingstepimages';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class SdkMessageProcessingStepImage extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'sdkmessageprocessingstepimageid';
+    static $primaryKey = 'sdkmessageprocessingstepimageid';
 }

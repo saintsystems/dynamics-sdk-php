@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * Lead class
 *
@@ -40,5 +42,5 @@ class Lead extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'leadid';
+    static $primaryKey = 'leadid';
 }

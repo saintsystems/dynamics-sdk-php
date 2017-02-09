@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * DataPerformance class
 *
@@ -32,7 +34,7 @@ class DataPerformance extends Entity
      *
      * @var string
      */
-    protected $entity = 'dataperformances';
+    static $entity = 'dataperformances';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class DataPerformance extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'dataperformanceid';
+    static $primaryKey = 'dataperformanceid';
 }

@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * SdkMessage class
 *
@@ -32,7 +34,7 @@ class SdkMessage extends Entity
      *
      * @var string
      */
-    protected $entity = 'sdkmessages';
+    static $entity = 'sdkmessages';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class SdkMessage extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'sdkmessageid';
+    static $primaryKey = 'sdkmessageid';
 }

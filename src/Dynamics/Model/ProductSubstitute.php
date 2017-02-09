@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * ProductSubstitute class
 *
@@ -32,7 +34,7 @@ class ProductSubstitute extends Entity
      *
      * @var string
      */
-    protected $entity = 'productsubstitutes';
+    static $entity = 'productsubstitutes';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class ProductSubstitute extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'productsubstituteid';
+    static $primaryKey = 'productsubstituteid';
 }

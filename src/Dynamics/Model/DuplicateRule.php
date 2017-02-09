@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * DuplicateRule class
 *
@@ -32,7 +34,7 @@ class DuplicateRule extends Entity
      *
      * @var string
      */
-    protected $entity = 'duplicaterules';
+    static $entity = 'duplicaterules';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class DuplicateRule extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'duplicateruleid';
+    static $primaryKey = 'duplicateruleid';
 }

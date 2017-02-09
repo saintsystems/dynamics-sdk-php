@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * BookableResourceBooking class
 *
@@ -32,7 +34,7 @@ class BookableResourceBooking extends Entity
      *
      * @var string
      */
-    protected $entity = 'bookableresourcebookings';
+    static $entity = 'bookableresourcebookings';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class BookableResourceBooking extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'bookableresourcebookingid';
+    static $primaryKey = 'bookableresourcebookingid';
 }

@@ -1,7 +1,7 @@
 <?php
+
 use PHPUnit\Framework\TestCase;
-use Microsoft\Core\Enum;
-use Microsoft\Core\Support\Str;
+use Microsoft\OData;
 use Microsoft\Dynamics\Model;
 
 class ModelTest extends TestCase
@@ -24,10 +24,10 @@ class ModelTest extends TestCase
             if ($classname != null) {
                 $class = "Microsoft\\Dynamics\\Model\\" . explode(".", $fileInfo->getFileName())[0];
                 switch(get_parent_class($class)) {
-                    case Model\Entity::class:
+                    case OData\Entity::class:
                         $this->entities[] = $class;
                         break;
-                    case Enum::class:
+                    case OData\Enum::class:
                         $this->enums[] = $class;
                         break;
                     default:
@@ -40,8 +40,8 @@ class ModelTest extends TestCase
 
     public function testBaseEntity()
     {
-        $entity = new Model\Entity();
-        $this->assertInstanceOf(Model\Entity::class, $entity);
+        $entity = new OData\Entity();
+        $this->assertInstanceOf(OData\Entity::class, $entity);
     }
 
     public function testEntity()
@@ -52,21 +52,11 @@ class ModelTest extends TestCase
         }
     }
 
-    // public function testEntityPrimaryKeys()
-    // {
-    //     foreach ($this->entities as $entityClass) {
-    //         $entity = new $entityClass();
-    //         $entityName = $entity::$entity;
-    //         $expected = $this->readAttribute($entity, 'entity');//str_replace('\\', '', Str::snake(Str::plural(class_basename($entity))));
-    //         $this->assertEquals($expected, $entityName);
-    //     }
-    // }
-
     public function testEntityNames()
     {
         foreach ($this->entities as $entityClass) {
             $entity = new $entityClass();
-            $primaryKey = $this->readAttribute($entity, 'primaryKey');
+            $primaryKey = $entity::$primaryKey;
             $expected = $entity->getKeyName();
             $this->assertEquals($expected, $primaryKey);
         }

@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * Solution class
 *
@@ -32,7 +34,7 @@ class Solution extends Entity
      *
      * @var string
      */
-    protected $entity = 'solutions';
+    static $entity = 'solutions';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class Solution extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'solutionid';
+    static $primaryKey = 'solutionid';
 }

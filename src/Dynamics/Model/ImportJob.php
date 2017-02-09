@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * ImportJob class
 *
@@ -32,7 +34,7 @@ class ImportJob extends Entity
      *
      * @var string
      */
-    protected $entity = 'importjobs';
+    static $entity = 'importjobs';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class ImportJob extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'importjobid';
+    static $primaryKey = 'importjobid';
 }

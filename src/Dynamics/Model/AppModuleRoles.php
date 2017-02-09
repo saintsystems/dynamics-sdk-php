@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * AppModuleRoles class
 *
@@ -32,7 +34,7 @@ class AppModuleRoles extends Entity
      *
      * @var string
      */
-    protected $entity = 'appmodulerolescollection';
+    static $entity = 'appmodulerolescollection';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class AppModuleRoles extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'appmoduleroleid';
+    static $primaryKey = 'appmoduleroleid';
 }

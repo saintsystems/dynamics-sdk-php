@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * ReportCategory class
 *
@@ -32,7 +34,7 @@ class ReportCategory extends Entity
      *
      * @var string
      */
-    protected $entity = 'reportcategories';
+    static $entity = 'reportcategories';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class ReportCategory extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'reportcategoryid';
+    static $primaryKey = 'reportcategoryid';
 }

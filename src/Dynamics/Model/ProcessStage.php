@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * ProcessStage class
 *
@@ -32,7 +34,7 @@ class ProcessStage extends Entity
      *
      * @var string
      */
-    protected $entity = 'processstages';
+    static $entity = 'processstages';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class ProcessStage extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'processstageid';
+    static $primaryKey = 'processstageid';
 }

@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * SyncError class
 *
@@ -32,7 +34,7 @@ class SyncError extends Entity
      *
      * @var string
      */
-    protected $entity = 'syncerrors';
+    static $entity = 'syncerrors';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class SyncError extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'syncerrorid';
+    static $primaryKey = 'syncerrorid';
 }

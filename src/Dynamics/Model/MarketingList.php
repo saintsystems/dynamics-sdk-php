@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * MarketingList class
 *
@@ -36,7 +38,7 @@ class MarketingList extends Entity
      *
      * @var string
      */
-    protected $entity = 'lists';
+    static $entity = 'lists';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -44,5 +46,5 @@ class MarketingList extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'listid';
+    static $primaryKey = 'listid';
 }

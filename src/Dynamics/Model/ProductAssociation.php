@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * ProductAssociation class
 *
@@ -32,7 +34,7 @@ class ProductAssociation extends Entity
      *
      * @var string
      */
-    protected $entity = 'productassociations';
+    static $entity = 'productassociations';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class ProductAssociation extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'productassociationid';
+    static $primaryKey = 'productassociationid';
 }

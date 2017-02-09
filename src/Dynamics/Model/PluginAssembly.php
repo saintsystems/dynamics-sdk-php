@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * PluginAssembly class
 *
@@ -32,7 +34,7 @@ class PluginAssembly extends Entity
      *
      * @var string
      */
-    protected $entity = 'pluginassemblies';
+    static $entity = 'pluginassemblies';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class PluginAssembly extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'pluginassemblyid';
+    static $primaryKey = 'pluginassemblyid';
 }

@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * ActivityMimeAttachment class
 *
@@ -32,7 +34,7 @@ class ActivityMimeAttachment extends Entity
      *
      * @var string
      */
-    protected $entity = 'activitymimeattachments';
+    static $entity = 'activitymimeattachments';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class ActivityMimeAttachment extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'activitymimeattachmentid';
+    static $primaryKey = 'activitymimeattachmentid';
 }

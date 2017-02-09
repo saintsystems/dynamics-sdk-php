@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * UserQueryVisualization class
 *
@@ -32,7 +34,7 @@ class UserQueryVisualization extends Entity
      *
      * @var string
      */
-    protected $entity = 'userqueryvisualizations';
+    static $entity = 'userqueryvisualizations';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class UserQueryVisualization extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'userqueryvisualizationid';
+    static $primaryKey = 'userqueryvisualizationid';
 }

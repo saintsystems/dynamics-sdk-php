@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * SLAItem class
 *
@@ -32,7 +34,7 @@ class SLAItem extends Entity
      *
      * @var string
      */
-    protected $entity = 'slaitems';
+    static $entity = 'slaitems';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class SLAItem extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'slaitemid';
+    static $primaryKey = 'slaitemid';
 }

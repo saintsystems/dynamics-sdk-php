@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * WorkflowLog class
 *
@@ -32,7 +34,7 @@ class WorkflowLog extends Entity
      *
      * @var string
      */
-    protected $entity = 'workflowlogs';
+    static $entity = 'workflowlogs';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class WorkflowLog extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'workflowlogid';
+    static $primaryKey = 'workflowlogid';
 }

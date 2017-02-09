@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * BusinessUnitNewsArticle class
 *
@@ -32,7 +34,7 @@ class BusinessUnitNewsArticle extends Entity
      *
      * @var string
      */
-    protected $entity = 'businessunitnewsarticles';
+    static $entity = 'businessunitnewsarticles';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class BusinessUnitNewsArticle extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'businessunitnewsarticleid';
+    static $primaryKey = 'businessunitnewsarticleid';
 }

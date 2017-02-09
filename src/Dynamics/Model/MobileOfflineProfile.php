@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * MobileOfflineProfile class
 *
@@ -32,7 +34,7 @@ class MobileOfflineProfile extends Entity
      *
      * @var string
      */
-    protected $entity = 'mobileofflineprofiles';
+    static $entity = 'mobileofflineprofiles';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class MobileOfflineProfile extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'mobileofflineprofileid';
+    static $primaryKey = 'mobileofflineprofileid';
 }

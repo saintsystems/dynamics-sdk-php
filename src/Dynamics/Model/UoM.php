@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * UoM class
 *
@@ -32,7 +34,7 @@ class UoM extends Entity
      *
      * @var string
      */
-    protected $entity = 'uoms';
+    static $entity = 'uoms';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class UoM extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'uomid';
+    static $primaryKey = 'uomid';
 }

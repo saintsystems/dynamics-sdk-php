@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * AsyncOperation class
 *
@@ -32,7 +34,7 @@ class AsyncOperation extends Entity
      *
      * @var string
      */
-    protected $entity = 'asyncoperations';
+    static $entity = 'asyncoperations';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class AsyncOperation extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'asyncoperationid';
+    static $primaryKey = 'asyncoperationid';
 }

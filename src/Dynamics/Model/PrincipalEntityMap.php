@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * PrincipalEntityMap class
 *
@@ -32,7 +34,7 @@ class PrincipalEntityMap extends Entity
      *
      * @var string
      */
-    protected $entity = 'principalentitymaps';
+    static $entity = 'principalentitymaps';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class PrincipalEntityMap extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'principalentitymapid';
+    static $primaryKey = 'principalentitymapid';
 }

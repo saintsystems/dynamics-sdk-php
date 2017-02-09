@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * SavedQuery class
 *
@@ -32,7 +34,7 @@ class SavedQuery extends Entity
      *
      * @var string
      */
-    protected $entity = 'savedqueries';
+    static $entity = 'savedqueries';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class SavedQuery extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'savedqueryid';
+    static $primaryKey = 'savedqueryid';
 }

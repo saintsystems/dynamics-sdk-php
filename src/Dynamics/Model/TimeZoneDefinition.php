@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * TimeZoneDefinition class
 *
@@ -32,7 +34,7 @@ class TimeZoneDefinition extends Entity
      *
      * @var string
      */
-    protected $entity = 'timezonedefinitions';
+    static $entity = 'timezonedefinitions';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class TimeZoneDefinition extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'timezonedefinitionid';
+    static $primaryKey = 'timezonedefinitionid';
 }

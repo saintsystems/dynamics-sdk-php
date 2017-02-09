@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * Organization class
 *
@@ -32,7 +34,7 @@ class Organization extends Entity
      *
      * @var string
      */
-    protected $entity = 'organizations';
+    static $entity = 'organizations';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class Organization extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'organizationid';
+    static $primaryKey = 'organizationid';
 }

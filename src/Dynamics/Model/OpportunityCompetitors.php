@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * OpportunityCompetitors class
 *
@@ -32,7 +34,7 @@ class OpportunityCompetitors extends Entity
      *
      * @var string
      */
-    protected $entity = 'opportunitycompetitorscollection';
+    static $entity = 'opportunitycompetitorscollection';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class OpportunityCompetitors extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'opportunitycompetitorid';
+    static $primaryKey = 'opportunitycompetitorid';
 }

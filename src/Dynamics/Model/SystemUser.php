@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * SystemUser class
 *
@@ -32,7 +34,7 @@ class SystemUser extends Entity
      *
      * @var string
      */
-    protected $entity = 'systemusers';
+    static $entity = 'systemusers';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class SystemUser extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'systemuserid';
+    static $primaryKey = 'systemuserid';
 }

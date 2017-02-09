@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * BulkOperationLog class
 *
@@ -32,7 +34,7 @@ class BulkOperationLog extends Entity
      *
      * @var string
      */
-    protected $entity = 'bulkoperationlogs';
+    static $entity = 'bulkoperationlogs';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class BulkOperationLog extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'bulkoperationlogid';
+    static $primaryKey = 'bulkoperationlogid';
 }

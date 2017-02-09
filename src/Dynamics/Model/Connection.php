@@ -14,6 +14,8 @@
 */
 namespace Microsoft\Dynamics\Model;
 
+use Microsoft\OData\Entity;
+
 /**
 * Connection class
 *
@@ -32,7 +34,7 @@ class Connection extends Entity
      *
      * @var string
      */
-    protected $entity = 'connections';
+    static $entity = 'connections';
 
     /**
      * The name of the attribute that is the primary id for the entity.
@@ -40,5 +42,5 @@ class Connection extends Entity
      *
      * @var string
      */
-    protected $primaryKey = 'connectionid';
+    static $primaryKey = 'connectionid';
 }
