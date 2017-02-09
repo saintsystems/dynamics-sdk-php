@@ -284,7 +284,18 @@ class QueryBuilder
     }
 
     /**
-     * Alias to set the "take" value of the query.
+     * Set the "$skip" value of the query.
+     *
+     * @param  int  $value
+     * @return \Illuminate\Database\Query\Builder|static
+     */
+    public function skip($value)
+    {
+        return $this->skip = $value;
+    }
+
+    /**
+     * Set the "$top" value of the query.
      *
      * @param  int  $value
      * @return \Microsoft\OData\QueryBuilder|static

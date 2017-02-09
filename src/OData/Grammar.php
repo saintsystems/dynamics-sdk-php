@@ -110,7 +110,17 @@ class Grammar
             return '';
         }
 
+        $entityKey = $this->wrapKey($entityKey);
+
         return "($entityKey)";
+    }
+
+    protected function wrapKey($entityKey)
+    {
+        if (is_uuid($entityKey) || is_numeric($entityKey)) {
+            return $entityKey;
+        }
+        return "'$entityKey'";;
     }
 
     /**

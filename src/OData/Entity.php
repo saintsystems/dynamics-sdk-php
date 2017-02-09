@@ -48,6 +48,12 @@ class Entity implements ArrayAccess
      * @var string
      */
     // protected $primaryKey = 'id';
+     
+    /**
+     * The "type" of the entity key.
+     * @var string
+     */
+    // protected $keyType = 'int';
 
     /**
      * The number of entities to return for pagination.
