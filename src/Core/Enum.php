@@ -8,21 +8,21 @@
 * PHP version 7
 *
 * @category  Library
-* @package   Microsoft.Dynamics
+* @package   Microsoft.Core
 * @copyright 2017 Saint Systems, LLC
 * @license   https://opensource.org/licenses/MIT MIT License
 * @version   GIT: 0.1.0
 * @link      https://www.microsoft.com/en-us/dynamics365/
 */
-namespace Microsoft\Dynamics\Core;
+namespace Microsoft\Core;
 
-use Microsoft\Dynamics\Exception\DynamicsException;
+use Microsoft\Core\Exception\ApplicationException;
 
 /**
  * Class Enum
  *
  * @category Library
- * @package  Microsoft.Dynamics
+ * @package  Microsoft.Core
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     https://www.microsoft.com/en-us/dynamics365/
  */
@@ -46,7 +46,7 @@ abstract class Enum
     public function __construct($value)
     {
         if (!self::has($value)) {
-            throw new DynamicsException("Invalid enum value $value");
+            throw new ApplicationException("Invalid enum value $value");
         }
         $this->_value = $value;
     }

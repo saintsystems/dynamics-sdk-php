@@ -24,11 +24,13 @@
     },
     "autoload": {
         "files": [
-            "src/Support/helpers.php",
+            "src/Core/Support/helpers.php",
             "tests/DynamicsTestCase.php"
         ],
         "psr-4": {
-            "Microsoft\\Dynamics\\": "src/"
+            "Microsoft\\Core\\": "src/Core",
+            "Microsoft\\OData\\": "src/OData",
+            "Microsoft\\Dynamics\\": "src/Dynamics"
         }
     },
     "config": {

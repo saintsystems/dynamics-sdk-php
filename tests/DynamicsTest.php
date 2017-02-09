@@ -1,7 +1,7 @@
 <?php
 
 use Microsoft\Dynamics\Tests\DynamicsTestCase;
-use Microsoft\Dynamics\Core\DynamicsConstants;
+use Microsoft\Dynamics\Constants;
 use Microsoft\Dynamics\Dynamics;
 use Microsoft\Dynamics\Http\DynamicsRequest;
 
@@ -54,7 +54,7 @@ class DynamicsTest extends DynamicsTestCase
     {
         $dynamics = new Dynamics();
         $apiVersion = $this->readAttribute($dynamics, 'apiVersion');
-        $this->assertEquals(DynamicsConstants::API_VERSION, $apiVersion);
+        $this->assertEquals(Constants::API_VERSION, $apiVersion);
     }
 
     public function testDynamicsApiVersionSetter()
@@ -155,7 +155,7 @@ class DynamicsTest extends DynamicsTestCase
 
         $this->assertEquals(self::TEST_INSTANCE_URL . '/api/data/', $this->readAttribute($request, 'instanceApiUrl'));
         $this->assertEquals(self::TEST_INSTANCE_2_URL . '/api/data/', $this->readAttribute($request2, 'instanceApiUrl'));
-        $this->assertEquals(DynamicsConstants::API_VERSION, $this->readAttribute($request, 'apiVersion'));
+        $this->assertEquals(Constants::API_VERSION, $this->readAttribute($request, 'apiVersion'));
         $this->assertEquals('v8.0', $this->readAttribute($request2, 'apiVersion'));
         
     }

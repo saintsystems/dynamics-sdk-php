@@ -1,6 +1,6 @@
 <?php
 use PHPUnit\Framework\TestCase;
-use Microsoft\Dynamics\Core\DynamicsConstants;
+use Microsoft\Dynamics\Constants;
 use Microsoft\Dynamics\Dynamics;
 use Microsoft\Dynamics\Http\DynamicsRequest;
 
@@ -21,11 +21,11 @@ class DynamicsRequestTest extends TestCase
         $this->defaultHeaders = array(
             "Host" => "instanceUrl",
             "Content-Type" => "application/json",
-            DynamicsConstants::MAX_ODATA_VERSION_HEADER => DynamicsConstants::MAX_ODATA_VERSION,
-            DynamicsConstants::ODATA_VERSION_HEADER => DynamicsConstants::ODATA_VERSION,
-            DynamicsConstants::PREFER_HEADER => DynamicsConstants::ODATA_MAX_PAGE_SIZE_DEFAULT,
-            "SdkVersion" => "Dynamics-php-" . DynamicsConstants::SDK_VERSION,
-            "SdkVersion" => "Dynamics-php-" . DynamicsConstants::SDK_VERSION,
+            Constants::MAX_ODATA_VERSION_HEADER => Constants::MAX_ODATA_VERSION,
+            Constants::ODATA_VERSION_HEADER => Constants::ODATA_VERSION,
+            Constants::PREFER_HEADER => Constants::ODATA_MAX_PAGE_SIZE_DEFAULT,
+            "SdkVersion" => "Dynamics-php-" . Constants::SDK_VERSION,
+            "SdkVersion" => "Dynamics-php-" . Constants::SDK_VERSION,
             "Authorization" => "Bearer token"
         );
 
@@ -70,11 +70,11 @@ class DynamicsRequestTest extends TestCase
         $expectedHeaders = array(
             "Host" => "instanceUrl",
             "Content-Type" => "application/json",
-            DynamicsConstants::MAX_ODATA_VERSION_HEADER => DynamicsConstants::MAX_ODATA_VERSION,
-            DynamicsConstants::ODATA_VERSION_HEADER => DynamicsConstants::ODATA_VERSION,
-            DynamicsConstants::PREFER_HEADER => DynamicsConstants::ODATA_MAX_PAGE_SIZE_DEFAULT,
-            "SdkVersion" => "Dynamics-php-" . DynamicsConstants::SDK_VERSION,
-            "SdkVersion" => "Dynamics-php-" . DynamicsConstants::SDK_VERSION,
+            Constants::MAX_ODATA_VERSION_HEADER => Constants::MAX_ODATA_VERSION,
+            Constants::ODATA_VERSION_HEADER => Constants::ODATA_VERSION,
+            Constants::PREFER_HEADER => Constants::ODATA_MAX_PAGE_SIZE_DEFAULT,
+            "SdkVersion" => "Dynamics-php-" . Constants::SDK_VERSION,
+            "SdkVersion" => "Dynamics-php-" . Constants::SDK_VERSION,
             "Authorization" => "Bearer token",
             "test" => "header"
         );
@@ -91,10 +91,10 @@ class DynamicsRequestTest extends TestCase
         $expectedHeaders = array(
             "Host" => "instanceUrl",
             "Content-Type" => "application/x-www-form-urlencoded",
-            DynamicsConstants::MAX_ODATA_VERSION_HEADER => DynamicsConstants::MAX_ODATA_VERSION,
-            DynamicsConstants::ODATA_VERSION_HEADER => DynamicsConstants::ODATA_VERSION,
-            DynamicsConstants::PREFER_HEADER => DynamicsConstants::ODATA_MAX_PAGE_SIZE_DEFAULT,
-            "SdkVersion" => "Dynamics-php-" . DynamicsConstants::SDK_VERSION,
+            Constants::MAX_ODATA_VERSION_HEADER => Constants::MAX_ODATA_VERSION,
+            Constants::ODATA_VERSION_HEADER => Constants::ODATA_VERSION,
+            Constants::PREFER_HEADER => Constants::ODATA_MAX_PAGE_SIZE_DEFAULT,
+            "SdkVersion" => "Dynamics-php-" . Constants::SDK_VERSION,
             "Authorization" => "Bearer token"
         );
 
