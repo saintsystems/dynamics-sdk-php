@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Core\Exception;
+namespace Microsoft\OData;
 
 class MassAssignmentException extends ApplicationException
 {

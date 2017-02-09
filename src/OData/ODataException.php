@@ -4,31 +4,33 @@
 * Licensed under the MIT License.  See License in the project root 
 * for license information.
 * 
-* Exceptions File
+* ODataException File
 * PHP version 7
 *
 * @category  Library
-* @package   Microsoft.Core
+* @package   Microsoft.OData
 * @copyright 2017 Saint Systems, LLC
 * @license   https://opensource.org/licenses/MIT MIT License
 * @version   GIT: 0.1.0
 * @link      https://www.microsoft.com/en-us/dynamics365/
 */
 
-namespace Microsoft\Core\Exception;
+namespace Microsoft\OData;
+
+use Exception;
 
 /**
- * Class ApplicationException
+ * Class ODataException
  *
  * @category Library
- * @package  Microsoft.Core
+ * @package  Microsoft.OData
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     https://www.microsoft.com/en-us/dynamics365/
  */
-class ApplicationException extends \Exception
+class ODataException extends Exception
 {
     /**
-    * Construct a new Dynamics Exception handler
+    * Construct a new ODataException handler
     *
     * @param string    $message  The error to send
     * @param int       $code     The error code associated with the error

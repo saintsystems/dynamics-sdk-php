@@ -32,7 +32,7 @@ class Log
 		// Create the logger
 		$this->monolog = new Logger('Dynamics');
 		// Now add some handlers
-		$this->monolog->pushHandler(new StreamHandler(realpath(__DIR__ . '/../..').'/storage/dynamics.log', Logger::DEBUG));
+		$this->monolog->pushHandler(new StreamHandler(realpath(__DIR__ . '/../../..').'/storage/dynamics.log', Logger::DEBUG));
 		$this->monolog->pushHandler(new FirePHPHandler());
 
 		// You can now use your logger

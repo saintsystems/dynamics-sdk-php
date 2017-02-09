@@ -20,7 +20,7 @@ class BaseClient implements IBaseClient
 
     /**
      * The IAuthenticationProvider for authenticating request messages.
-     * @var IAuthenticationProvider
+     * @var \Microsoft\Core\Http\IAuthenticationProvider
      */
     private $authenticationProvider;
 
@@ -49,8 +49,6 @@ class BaseClient implements IBaseClient
      * Gets the IAuthenticationProvider for authenticating requests.
      * @var IAuthenticationProvider
      */
-    
-
     public function getAuthenticationProvider()
     {
         return $this->authenticationProvider;

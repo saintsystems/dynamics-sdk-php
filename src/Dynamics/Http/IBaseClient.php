@@ -9,7 +9,7 @@ interface IBaseClient
 {
     /**
      * Gets the IAuthenticationProvider for authenticating HTTP requests.
-     * @var IAuthenticationProvider
+     * @var \Microsoft\Core\Http\IAuthenticationProvider
      */
     public function getAuthenticationProvider();
 
@@ -21,7 +21,7 @@ interface IBaseClient
 
     /**
      * Gets the IHttpProvider for sending HTTP requests.
-     * @var IHttpProvider
+     * @var \Microsoft\Core\Http\IHttpProvider
      */
     public function getHttpProvider();
 }

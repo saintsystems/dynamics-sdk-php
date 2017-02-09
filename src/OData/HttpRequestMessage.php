@@ -1,7 +1,6 @@
 <?php
 
-namespace Microsoft\Core\Http;
-
+namespace Microsoft\OData;
 
 class HttpRequestMessage
 {
@@ -52,6 +51,6 @@ class HttpRequestMessage
         $this->method = $method;
         $this->requestUri = $requestUri;
         $this->headers = [];
-        $this->returnStream = false;
+        $this->returnsStream = false;
     }
 }

@@ -5,6 +5,7 @@ namespace Microsoft\OData;
 use Closure;
 use RuntimeException;
 use BadMethodCallException;
+use Illuminate\Support\Arr;
 
 class QueryBuilder
 {
@@ -64,7 +65,7 @@ class QueryBuilder
      *
      * @var array
      */
-    public $select;
+    public $properties;
 
     /**
      * The where constraints for the query.
@@ -92,14 +93,14 @@ class QueryBuilder
      *
      * @var int
      */
-    public $limit;
+    public $take;
 
     /**
      * The number of records to skip.
      *
      * @var int
      */
-    public $offset;
+    public $skip;
 
     /**
      * All of the available clause operators.
@@ -115,29 +116,45 @@ class QueryBuilder
         'not similar to', 'not ilike', '~~*', '!~~*',
     ];
 
+    // /**
+    //  * Constructs a new BaseRequestBuilder.
+    //  * @param string      $requestUrl The URL for the built request.
+    //  * @param IBaseClient $client     The IBaseClient for handling requests.
+    //  */
+    // public function __construct(string $requestUrl, 
+    //                             IBaseClient $client, 
+    //                             string $returnType)
+    // {
+    //     $this->client = $client;
+    //     $this->requestUrl = $requestUrl;
+    //     $this->returnType = $returnType;
+    // }
     /**
-     * Constructs a new BaseRequestBuilder.
-     * @param string      $requestUrl The URL for the built request.
-     * @param IBaseClient $client     The IBaseClient for handling requests.
+     * Create a new query builder instance.
+     *
+     * @param  \Microsoft\OData\IODataClient  $client
+     * @param  \Microsoft\OData\Grammar  $grammar
+     * @param  \Microsoft\OData\Processor  $processor
+     * @return void
      */
-    public function __construct(string $requestUrl, 
-                                IBaseClient $client, 
-                                string $returnType)
+    public function __construct(IODataClient $client,
+                                Grammar $grammar = null,
+                                Processor $processor = null)
     {
         $this->client = $client;
-        $this->requestUrl = $requestUrl;
-        $this->returnType = $returnType;
+        $this->grammar = $grammar ?: $client->getQueryGrammar();
+        $this->processor = $processor ?: $client->getPostProcessor();
     }
 
     /**
-     * Set the columns to be selected.
+     * Set the properties to be selected.
      *
-     * @param  array|mixed  $columns
+     * @param  array|mixed  $properties
      * @return $this
      */
-    public function select($select = [])
+    public function select($properties = [])
     {
-        $this->select = is_array($columns) ? $columns : func_get_args();
+        $this->properties = is_array($properties) ? $properties : func_get_args();
 
         return $this;
     }
@@ -163,9 +180,22 @@ class QueryBuilder
      * @param  string  $entitySet
      * @return $this
      */
-    public function from($entitySet)
+    public function entitySet(string $entitySet)
     {
-        $this->from = $entitySet;
+        $this->entitySet = $entitySet;
+
+        return $this;
+    }
+
+    /**
+     * Set the entity set which the query is targeting.
+     *
+     * @param  string  $entityKey
+     * @return $this
+     */
+    public function entityKey(string $entityKey)
+    {
+        $this->entityKey = $entityKey;
 
         return $this;
     }
@@ -207,6 +237,115 @@ class QueryBuilder
         );
     }
 
+    /**
+     * Get the HTTP Request representation of the query.
+     *
+     * @return string
+     */
+    public function toRequest()
+    {
+        return $this->grammar->compileSelect($this);
+    }
 
+    /**
+     * Execute a query for a single record by ID.
+     *
+     * @param  int    $id
+     * @param  array  $properties
+     * @return mixed|static
+     */
+    public function find($id, $properties = [])
+    {
+        return $this->entityKey($id)->first($properties);
+    }
+
+    /**
+     * Get a single column's value from the first result of a query.
+     *
+     * @param  string  $column
+     * @return mixed
+     */
+    public function value($column)
+    {
+        $result = (array) $this->first([$column]);
+
+        return count($result) > 0 ? reset($result) : null;
+    }
+
+    /**
+     * Execute the query and get the first result.
+     *
+     * @param  array   $columns
+     * @return \stdClass|array|null
+     */
+    public function first($properties = [])
+    {
+        return $this->take(1)->get($properties)->first();
+    }
+
+    /**
+     * Alias to set the "take" value of the query.
+     *
+     * @param  int  $value
+     * @return \Microsoft\OData\QueryBuilder|static
+     */
+    public function take($value)
+    {
+        $this->take = $value;
+        return $this;
+    }
+
+    /**
+     * Execute the query as a "GET" request.
+     *
+     * @param  array  $properties
+     * @return \Illuminate\Support\Collection
+     */
+    public function get($properties = [])
+    {
+        $original = $this->properties;
+
+        if (is_null($original)) {
+            $this->properties = $properties;
+        }
+
+        $results = $this->processor->processSelect($this, $this->runGet());
+
+        $this->properties = $original;
+
+        return collect($results);
+    }
+
+    /**
+     * Run the query as a "GET" request against the client.
+     *
+     * @return array
+     */
+    protected function runGet()
+    {
+        return $this->client->get(
+            $this->grammar->compileSelect($this), $this->getBindings()
+        );
+    }
+
+    /**
+     * Get a new instance of the query builder.
+     *
+     * @return \Microsoft\OData\QueryBuilder
+     */
+    public function newQuery()
+    {
+        return new static($this->client, $this->grammar, $this->processor);
+    }
+
+    /**
+     * Get the current query value bindings in a flattened array.
+     *
+     * @return array
+     */
+    public function getBindings()
+    {
+        return Arr::flatten($this->bindings);
+    }
 
 }

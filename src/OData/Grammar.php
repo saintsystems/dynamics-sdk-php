@@ -15,20 +15,20 @@ class Grammar
     ];
 
     /**
-     * The components that make up a select clause.
+     * The components that make up an OData Request.
      *
      * @var array
      */
     protected $selectComponents = [
         'entitySet',
-        'entityKey'
+        'entityKey',
         'count',
-        'select',
+        'properties',
         'wheres',
         //'expand',
         //'search',
         'orders',
-        //'take',
+        'take',
         //'skip',
     ];
 
@@ -40,13 +40,13 @@ class Grammar
      */
     public function compileSelect(QueryBuilder $query)
     {
-        // If the query does not have any select set, we'll set the $select to the
+        // If the query does not have any properties set, we'll set the properties to the
         // [] character to just get all of the columns from the database. Then we
         // can build the query and concatenate all the pieces together as one.
-        $original = $query->select;
+        $original = $query->properties;
 
-        if (is_null($query->select)) {
-            $query->select = [];
+        if (is_null($query->properties)) {
+            $query->properties = [];
         }
 
         // To compile the query, we'll spin through each component of the query and
@@ -56,8 +56,8 @@ class Grammar
             $this->compileComponents($query))
         );
 
-        $query->select = $original;
-
+        $query->properties = $original;
+        
         return $uri;
     }
 
@@ -86,19 +86,6 @@ class Grammar
     }
 
     /**
-     * Compile an aggregated select clause.
-     *
-     * @param  \Microsoft\OData\QueryBuilder  $query
-     * @param  array  $aggregate
-     * @return string
-     */
-    protected function compileCount(QueryBuilder $query, $aggregate)
-    {
-
-        return '/$count';
-    }
-
-    /**
      * Compile the "from" portion of the query.
      *
      * @param  \Microsoft\OData\QueryBuilder  $query
@@ -107,7 +94,7 @@ class Grammar
      */
     protected function compileEntitySet(QueryBuilder $query, $entitySet)
     {
-        return $this->entitySet;
+        return $entitySet;
     }
 
     /**
@@ -127,13 +114,26 @@ class Grammar
     }
 
     /**
-     * Compile the $select portion of the OData query.
+     * Compile an aggregated select clause.
      *
      * @param  \Microsoft\OData\QueryBuilder  $query
-     * @param  array  $select
+     * @param  array  $aggregate
+     * @return string
+     */
+    protected function compileCount(QueryBuilder $query, $aggregate)
+    {
+
+        return '/$count';
+    }
+
+    /**
+     * Compile the "$select=" portion of the OData query.
+     *
+     * @param  \Microsoft\OData\QueryBuilder  $query
+     * @param  array  $properties
      * @return string|null
      */
-    protected function compileSelect(QueryBuilder $query, $select)
+    protected function compileProperties(QueryBuilder $query, $properties)
     {
         // If the query is actually performing an aggregating select, we will let that
         // compiler handle the building of the select clauses, as it will need some
@@ -142,9 +142,12 @@ class Grammar
             return;
         }
 
-        $select = '$select=';
-
-        return $select.$this->columnize($select);
+        $select = '';
+        if (! empty($properties)) {
+            $select = '$select='.$this->columnize($properties);
+        }
+        
+        return $select;
     }
 
     /**
@@ -232,26 +235,54 @@ class Grammar
     }
 
     /**
-     * Compile the "limit" portions of the query.
+     * Compile the "$top" portions of the query.
      *
      * @param  \Microsoft\OData\QueryBuilder   $query
-     * @param  int  $limit
+     * @param  int  $take
      * @return string
      */
-    protected function compileLimit(QueryBuilder $query, $limit)
+    protected function compileTake(QueryBuilder $query, $take)
     {
-        return '$top='.(int) $limit;
+        // If we have an entity key $top is redundant and invalid, so bail
+        if (! empty($query->entityKey)) {
+            return '';
+        }
+        return '$top='.(int) $take;
     }
 
     /**
-     * Compile the "offset" portions of the query.
+     * Compile the "$skip" portions of the query.
      *
      * @param  \Microsoft\OData\QueryBuilder   $query
-     * @param  int  $offset
+     * @param  int  $skip
      * @return string
      */
-    protected function compileOffset(QueryBuilder $query, $offset)
+    protected function compileSkip(QueryBuilder $query, $skip)
     {
-        return '$skip='.(int) $offset;
+        return '$skip='.(int) $skip;
+    }
+
+    /**
+     * Convert an array of property names into a delimited string.
+     *
+     * @param  array   $properties
+     * @return string
+     */
+    public function columnize(array $properties)
+    {
+        return implode(',', $properties);
+    }
+
+    /**
+     * Concatenate an array of segments, removing empties.
+     *
+     * @param  array   $segments
+     * @return string
+     */
+    protected function concatenate($segments)
+    {
+        return implode('', array_filter($segments, function ($value) {
+            return (string) $value !== '';
+        }));
     }
 }

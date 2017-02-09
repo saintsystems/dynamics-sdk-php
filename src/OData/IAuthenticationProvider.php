@@ -1,8 +1,6 @@
 <?php
 
-namespace Microsoft\Dynamics\Http;
-
-use Microsoft\Core\Http\HttpRequestMessage;
+namespace Microsoft\OData;
 
 /**
  * Interface for authenticating requests.

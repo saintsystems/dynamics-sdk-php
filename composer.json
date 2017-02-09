@@ -16,7 +16,8 @@
         "php": ">=5.3.0",
         "guzzlehttp/guzzle": "^6.2",
         "monolog/monolog": "^1.22",
-        "nesbot/carbon": "^1.22"
+        "nesbot/carbon": "^1.22",
+        "illuminate/support": "^5.4"
     },
     "require-dev": {
         "phpunit/phpunit": "5.5.*",
@@ -24,11 +25,10 @@
     },
     "autoload": {
         "files": [
-            "src/Core/Support/helpers.php",
+            "src/OData/Support/helpers.php",
             "tests/DynamicsTestCase.php"
         ],
         "psr-4": {
-            "Microsoft\\Core\\": "src/Core",
             "Microsoft\\OData\\": "src/OData",
             "Microsoft\\Dynamics\\": "src/Dynamics"
         }

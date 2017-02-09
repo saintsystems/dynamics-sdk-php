@@ -8,21 +8,19 @@
 * PHP version 7
 *
 * @category  Library
-* @package   Microsoft.Core
+* @package   Microsoft.OData
 * @copyright 2017 Saint Systems, LLC
 * @license   https://opensource.org/licenses/MIT MIT License
 * @version   GIT: 0.1.0
 * @link      https://www.microsoft.com/en-us/dynamics365/
 */
-namespace Microsoft\Core;
-
-use Microsoft\Core\Exception\ApplicationException;
+namespace Microsoft\OData;
 
 /**
  * Class Enum
  *
  * @category Library
- * @package  Microsoft.Core
+ * @package  Microsoft.OData
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     https://www.microsoft.com/en-us/dynamics365/
  */

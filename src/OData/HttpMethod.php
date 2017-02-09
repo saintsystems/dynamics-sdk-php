@@ -1,8 +1,6 @@
 <?php
 
-namespace Microsoft\Core\Http;
-
-use Microsoft\Core\Enum;
+namespace Microsoft\OData;
 
 class HttpMethod extends Enum
 {

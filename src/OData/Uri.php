@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\Core\Http;
+namespace Microsoft\OData;
 
 class Uri
 {
