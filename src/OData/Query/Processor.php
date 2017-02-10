@@ -23,11 +23,11 @@ class Processor
      * @param  string  $sql
      * @param  array   $values
      * @param  string  $sequence
-     * @return int
+     * @return mixed
      */
     public function processInsertGetId(Builder $query, $sql, $values, $sequence = null)
     {
-        $query->getConnection()->insert($sql, $values);
+        $query->getClient()->insert($sql, $values);
 
         $id = $query->getConnection()->getPdo()->lastInsertId($sequence);
 
