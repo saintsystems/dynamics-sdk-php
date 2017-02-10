@@ -12,7 +12,7 @@ class BaseRequestBuilder
      * @param string      $requestUrl The URL for the built request.
      * @param IBaseClient $client     The IBaseClient for handling requests.
      */
-    public function __construct(string $requestUrl, IBaseClient $client, string $returnType)
+    public function __construct($requestUrl, IBaseClient $client, $returnType)
     {
         $this->client = $client;
         $this->requestUrl = $requestUrl;
@@ -42,7 +42,7 @@ class BaseRequestBuilder
      * @param  string $urlSegment The segment to append to the request URL.
      * @return string             A URL that is the request builder's request URL with the segment appended.
      */
-    public function appendSegmentToRequestUrl(string $urlSegment) //:string
+    public function appendSegmentToRequestUrl($urlSegment) //:string
     {
         return sprintf('%s/%s', $this->requestUrl, $urlSegment);
     }

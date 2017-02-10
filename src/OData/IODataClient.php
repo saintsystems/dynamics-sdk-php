@@ -28,7 +28,7 @@ interface IODataClient
      * @param  string  $entitySet
      * @return \SaintSystems\OData\QueryBuilder
      */
-    public function entitySet(string $entitySet);
+    public function entitySet($entitySet);
 
     /**
      * Get a new query builder instance.

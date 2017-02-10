@@ -42,7 +42,7 @@ class DynamicsClient extends BaseClient// implements IDynamicsClient
      * @param IAuthenticationProvider $authenticationProvider The IAuthenticationProvider for authenticating request messages.
      * @param IHttpProvider|null      $httpProvider           The IHttpProvider for sending requests.
      */
-    public function __construct(string $baseUrl, 
+    public function __construct($baseUrl, 
                                 Closure $authenticationProvider = null, 
                                 IHttpProvider $httpProvider = null)
     {

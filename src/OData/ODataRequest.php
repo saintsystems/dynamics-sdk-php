@@ -255,7 +255,7 @@ class ODataRequest implements IODataRequest
      * <param name="requestUrl">The request URL.</param>
      * <returns>The request URL minus query string.</returns>
      */
-    private function initializeUrl(string $requestUrl)
+    private function initializeUrl($requestUrl)
     {
         if (empty($requestUrl))
         {

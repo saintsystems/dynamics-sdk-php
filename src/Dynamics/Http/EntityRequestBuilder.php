@@ -15,7 +15,7 @@ class EntityRequestBuilder extends BaseRequestBuilder implements IEntityRequestB
      * @param string      $requestUrl The URL for the built request.
      * @param IBaseClient $client     The IBaseClient for handling requests.
      */
-    public function __construct(string $requestUrl, IBaseClient $client, string $returnType)
+    public function __construct($requestUrl, IBaseClient $client, $returnType)
     {
         parent::__construct($requestUrl, $client, $returnType);
     }
@@ -84,7 +84,7 @@ class EntityRequestBuilder extends BaseRequestBuilder implements IEntityRequestB
      * @param  array $options The query and header options for the request.
      * @return IEntityRequest  The built request.
      */
-    public function requestWithOptions(array $options)
+    public function requestWithOptions($options)
     {
         $uri = $this->requestUrl . (empty($this->entityId) ?: '('.$this->entityId.')');
         return new EntityRequest($uri, $this->client, $this->returnType, $options);

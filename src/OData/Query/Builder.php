@@ -325,7 +325,8 @@ class Builder
 
         $this->properties = $original;
 
-        return collect($results);
+        //return collect($results);
+        return $results;
     }
 
     /**

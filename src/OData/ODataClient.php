@@ -48,7 +48,7 @@ class ODataClient implements IODataClient
      * @param IAuthenticationProvider $authenticationProvider The IAuthenticationProvider for authenticating request messages.
      * @param IHttpProvider|null      $httpProvider           The IHttpProvider for sending requests.
      */
-    public function __construct(string $baseUrl, 
+    public function __construct($baseUrl, 
                                 Closure $authenticationProvider = null, 
                                 IHttpProvider $httpProvider = null)
     {
@@ -151,7 +151,7 @@ class ODataClient implements IODataClient
      * @param  string  $entitySet
      * @return \SaintSystems\OData\Query\Builder
      */
-    public function entitySet(string $entitySet)
+    public function entitySet($entitySet)
     {
         return $this->query()->entitySet($entitySet);
     }

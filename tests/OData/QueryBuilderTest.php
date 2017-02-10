@@ -62,7 +62,8 @@ class BuilderTest extends TestCase
         $people = $builder->entitySet($entitySet)->get();
 
         //dd($people);
-        $this->assertInstanceOf(Collection::class, $people);
+        $this->assertTrue(is_array($people));
+        //$this->assertInstanceOf(Collection::class, $people);
         //$this->assertEquals($expected, $request);
     }
 
