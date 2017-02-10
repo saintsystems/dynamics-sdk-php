@@ -104,12 +104,12 @@ class ODataRequest implements IODataRequest
     private function getDefaultHeaders()
     {
         $headers = [
-            RequestHeader::HOST => $this->client->getBaseUrl(),
+            //RequestHeader::HOST => $this->client->getBaseUrl(),
             RequestHeader::CONTENT_TYPE => 'application/json',
             RequestHeader::ODATA_MAX_VERSION => Constants::MAX_ODATA_VERSION,
             RequestHeader::ODATA_VERSION => Constants::ODATA_VERSION,
             RequestHeader::PREFER => Constants::ODATA_MAX_PAGE_SIZE_DEFAULT,
-            'SdkVersion' => 'dynamics-sdk-php-' . Constants::SDK_VERSION,
+            RequestHeader::USER_AGENT => 'odata-sdk-php-' . Constants::SDK_VERSION,
             //RequestHeader::AUTHORIZATION => 'Bearer ' . $this->accessToken
         ];
         return $headers;

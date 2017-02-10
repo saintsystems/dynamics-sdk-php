@@ -2,6 +2,8 @@
 
 namespace SaintSystems\OData;
 
+use SaintSystems\OData\Core\Enum;
+
 class ResponseHeader extends Enum
 {
 	const ETAG = 'ETag';

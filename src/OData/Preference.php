@@ -2,7 +2,7 @@
 
 namespace SaintSystems\OData;
 
-use Microsoft\Core\Enum;
+use SaintSystems\OData\Core\Enum;
 
 class Preference extends Enum
 {

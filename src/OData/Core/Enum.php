@@ -13,7 +13,7 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @version   GIT: 0.1.0
 */
-namespace SaintSystems\OData;
+namespace SaintSystems\OData\Core;
 
 /**
  * Class Enum

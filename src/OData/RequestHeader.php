@@ -2,6 +2,8 @@
 
 namespace SaintSystems\OData;
 
+use SaintSystems\OData\Core\Enum;
+
 class RequestHeader extends Enum
 {
     const ACCEPT = 'Accept';

@@ -3,6 +3,7 @@
 namespace SaintSystems\OData;
 
 use GuzzleHttp\Client;
+use SaintSystems\OData\Exception\ODataException;
 
 class HttpProvider implements IHttpProvider
 {
@@ -67,28 +68,21 @@ class HttpProvider implements IHttpProvider
     {
         $returnType = is_null($returnType) ? Entity::class : $returnType;
          
-        dd($request->headers);
+        $options = [
+            'headers' => $request->headers,
+            'stream' =>  $request->returnsStream,
+            'timeout' => $this->timeout,
+        ];
 
-        try {
-            $result = $this->http->request(
-                $request->method, 
-                $request->requestUri, 
-                [
-                    'headers' => $request->headers,
-                    //'body' => $request->content,
-                    //'stream' =>  $request->returnsStream,
-                    'allow_redirects' => true,
-                    'timeout' => $this->timeout,
-                    'http_errors' => true
-                ]
-            );
-
-        } catch (Exception $e) {
-
-            var_dump($e->getResponse()->getBody()->getContent());
-            \Microsoft\Dynamics\Core\Log::get_instance()->info(print_r($e, true));
-            throw $e;
+        if ($request->method == HttpMethod::POST || $request->method == HttpMethod::PUT) {
+            $options['body'] = $request->content;
         }
+        
+        $result = $this->http->request(
+            $request->method, 
+            $request->requestUri, 
+            $options
+        );
 
         //Send back the bare response
         if ($request->returnsStream) {
@@ -111,7 +105,7 @@ class HttpProvider implements IHttpProvider
         $returnObj = $response;
 
         $returnObj = $response->getResponseAsObject($returnType);
-        dd($returnObj);
+        
         return $returnObj; 
     }
 

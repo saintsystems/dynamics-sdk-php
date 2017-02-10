@@ -17,8 +17,6 @@
 
 namespace Microsoft\Dynamics\Exception;
 
-use SaintSystems\OData\ApplicationException;
-
 /**
  * Class DynamicsException
  *
@@ -27,7 +25,7 @@ use SaintSystems\OData\ApplicationException;
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     https://www.microsoft.com/en-us/dynamics365/
  */
-class DynamicsException extends ApplicationException
+class DynamicsException extends \Exception
 {
     /**
     * Construct a new DynamicsException handler

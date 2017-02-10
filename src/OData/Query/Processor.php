@@ -1,17 +1,17 @@
 <?php
 
-namespace SaintSystems\OData;
+namespace SaintSystems\OData\Query;
 
 class Processor
 {
     /**
      * Process the results of a "select" query.
      *
-     * @param  \SaintSystems\OData\QueryBuilder  $query
+     * @param  \SaintSystems\OData\Query\Builder  $query
      * @param  array  $results
      * @return array
      */
-    public function processSelect(QueryBuilder $query, $results)
+    public function processSelect(Builder $query, $results)
     {
         return $results;
     }
@@ -19,13 +19,13 @@ class Processor
     /**
      * Process an "insert get ID" query.
      *
-     * @param  \SaintSystems\OData\QueryBuilder  $query
+     * @param  \SaintSystems\OData\Query\Builder  $query
      * @param  string  $sql
      * @param  array   $values
      * @param  string  $sequence
      * @return int
      */
-    public function processInsertGetId(QueryBuilder $query, $sql, $values, $sequence = null)
+    public function processInsertGetId(Builder $query, $sql, $values, $sequence = null)
     {
         $query->getConnection()->insert($sql, $values);
 

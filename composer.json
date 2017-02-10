@@ -25,11 +25,11 @@
     },
     "autoload": {
         "files": [
-            "src/OData/Support/helpers.php",
+            "src/OData/Core/helpers.php",
             "tests/DynamicsTestCase.php"
         ],
         "psr-4": {
-            "Microsoft\\OData\\": "src/OData",
+            "SaintSystems\\OData\\": "src/OData",
             "Microsoft\\Dynamics\\": "src/Dynamics"
         }
     },

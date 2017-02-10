@@ -1,13 +1,14 @@
 <?php
 
-namespace SaintSystems\OData;
+namespace SaintSystems\OData\Query;
 
 use Closure;
 use RuntimeException;
 use BadMethodCallException;
 use Illuminate\Support\Arr;
+use SaintSystems\OData\IODataClient;
 
-class QueryBuilder
+class Builder
 {
     /**
      * Gets the IBaseClient for handling requests.

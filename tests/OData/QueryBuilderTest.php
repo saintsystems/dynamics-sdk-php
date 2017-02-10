@@ -5,10 +5,11 @@ namespace SaintSystems\OData\Tests;
 use PHPUnit\Framework\TestCase;
 use Microsoft\Dynamics\Core\Log;
 
+use Illuminate\Support\Collection;
 use SaintSystems\OData\ODataClient;
-use SaintSystems\OData\QueryBuilder;
+use SaintSystems\OData\Query\Builder;
 
-class QueryBuilderTest extends TestCase
+class BuilderTest extends TestCase
 {
     protected $log;
     protected $baseUrl;
@@ -23,7 +24,7 @@ class QueryBuilderTest extends TestCase
 
     public function getBuilder()
     {
-        return new QueryBuilder(
+        return new Builder(
             $this->client, $this->client->getQueryGrammar(), $this->client->getPostProcessor()
         );
     }
@@ -60,8 +61,9 @@ class QueryBuilderTest extends TestCase
 
         $people = $builder->entitySet($entitySet)->get();
 
-        dd($people);
-        $this->assertEquals($expected, $request);
+        //dd($people);
+        $this->assertInstanceOf(Collection::class, $people);
+        //$this->assertEquals($expected, $request);
     }
 
     public function testEntityKeyString()

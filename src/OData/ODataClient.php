@@ -3,6 +3,10 @@
 namespace SaintSystems\OData;
 
 use Closure;
+use SaintSystems\OData\Query\Builder;
+use SaintSystems\OData\Query\Grammar;
+use SaintSystems\OData\Query\Processor;
+use SaintSystems\OData\Exception\ODataException;
 
 class ODataClient implements IODataClient
 {
@@ -145,7 +149,7 @@ class ODataClient implements IODataClient
      * Begin a fluent query against an odata service
      *
      * @param  string  $entitySet
-     * @return \SaintSystems\OData\QueryBuilder
+     * @return \SaintSystems\OData\Query\Builder
      */
     public function entitySet(string $entitySet)
     {
@@ -155,11 +159,11 @@ class ODataClient implements IODataClient
     /**
      * Get a new query builder instance.
      *
-     * @return \SaintSystems\OData\QueryBuilder
+     * @return \SaintSystems\OData\Query\Builder
      */
     public function query()
     {
-        return new QueryBuilder(
+        return new Builder(
             $this, $this->getQueryGrammar(), $this->getPostProcessor()
         );
     }

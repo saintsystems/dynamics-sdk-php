@@ -22,6 +22,7 @@ use JsonSerializable;
 use DateTimeInterface;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
+use SaintSystems\OData\MassAssignmentException;
 
 /**
 * Entity class

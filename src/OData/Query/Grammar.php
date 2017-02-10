@@ -1,6 +1,6 @@
 <?php
 
-namespace SaintSystems\OData;
+namespace SaintSystems\OData\Query;
 
 class Grammar
 {
@@ -35,10 +35,10 @@ class Grammar
     /**
      * Compile a select query into OData Uri
      *
-     * @param  \SaintSystems\OData\QueryBuilder  $query
+     * @param  \SaintSystems\OData\Query\Builder  $query
      * @return string
      */
-    public function compileSelect(QueryBuilder $query)
+    public function compileSelect(Builder $query)
     {
         // If the query does not have any properties set, we'll set the properties to the
         // [] character to just get all of the columns from the database. Then we
@@ -64,10 +64,10 @@ class Grammar
     /**
      * Compile the components necessary for a select clause.
      *
-     * @param  \SaintSystems\OData\QueryBuilder  $query
+     * @param  \SaintSystems\OData\Query\Builder  $query
      * @return array
      */
-    protected function compileComponents(QueryBuilder $query)
+    protected function compileComponents(Builder $query)
     {
         $uri = [];
 
@@ -88,11 +88,11 @@ class Grammar
     /**
      * Compile the "from" portion of the query.
      *
-     * @param  \SaintSystems\OData\QueryBuilder  $query
+     * @param  \SaintSystems\OData\Query\Builder  $query
      * @param  string  $entitySet
      * @return string
      */
-    protected function compileEntitySet(QueryBuilder $query, $entitySet)
+    protected function compileEntitySet(Builder $query, $entitySet)
     {
         return $entitySet;
     }
@@ -100,11 +100,11 @@ class Grammar
     /**
      * Compile the entity key portion of the query.
      *
-     * @param  \SaintSystems\OData\QueryBuilder  $query
+     * @param  \SaintSystems\OData\Query\Builder  $query
      * @param  string  $entityKey
      * @return string
      */
-    protected function compileEntityKey(QueryBuilder $query, $entityKey)
+    protected function compileEntityKey(Builder $query, $entityKey)
     {
         if (is_null($entityKey)) {
             return '';
@@ -126,11 +126,11 @@ class Grammar
     /**
      * Compile an aggregated select clause.
      *
-     * @param  \SaintSystems\OData\QueryBuilder  $query
+     * @param  \SaintSystems\OData\Query\Builder  $query
      * @param  array  $aggregate
      * @return string
      */
-    protected function compileCount(QueryBuilder $query, $aggregate)
+    protected function compileCount(Builder $query, $aggregate)
     {
 
         return '/$count';
@@ -139,11 +139,11 @@ class Grammar
     /**
      * Compile the "$select=" portion of the OData query.
      *
-     * @param  \SaintSystems\OData\QueryBuilder  $query
+     * @param  \SaintSystems\OData\Query\Builder  $query
      * @param  array  $properties
      * @return string|null
      */
-    protected function compileProperties(QueryBuilder $query, $properties)
+    protected function compileProperties(Builder $query, $properties)
     {
         // If the query is actually performing an aggregating select, we will let that
         // compiler handle the building of the select clauses, as it will need some
@@ -163,10 +163,10 @@ class Grammar
     /**
      * Compile the "where" portions of the query.
      *
-     * @param  \SaintSystems\OData\QueryBuilder  $query
+     * @param  \SaintSystems\OData\Query\Builder  $query
      * @return string
      */
-    protected function compileWheres(QueryBuilder $query)
+    protected function compileWheres(Builder $query)
     {
         // Each type of where clauses has its own compiler function which is responsible
         // for actually creating the where clauses SQL. This helps keep the code nice
@@ -188,7 +188,7 @@ class Grammar
     /**
      * Get an array of all the where clauses for the query.
      *
-     * @param  \SaintSystems\OData\QueryBuilder  $query
+     * @param  \SaintSystems\OData\Query\Builder  $query
      * @return array
      */
     protected function compileWheresToArray($query)
@@ -201,7 +201,7 @@ class Grammar
     /**
      * Format the where clause statements into one string.
      *
-     * @param  \SaintSystems\OData\QueryBuilder  $query
+     * @param  \SaintSystems\OData\Query\Builder  $query
      * @param  array  $sql
      * @return string
      */
@@ -215,11 +215,11 @@ class Grammar
     /**
      * Compile the "order by" portions of the query.
      *
-     * @param  \SaintSystems\OData\QueryBuilder   $query
+     * @param  \SaintSystems\OData\Query\Builder   $query
      * @param  array  $orders
      * @return string
      */
-    protected function compileOrders(QueryBuilder $query, $orders)
+    protected function compileOrders(Builder $query, $orders)
     {
         if (! empty($orders)) {
             return '$orderby='.implode(',', $this->compileOrdersToArray($query, $orders));
@@ -231,11 +231,11 @@ class Grammar
     /**
      * Compile the query orders to an array.
      *
-     * @param  \SaintSystems\OData\QueryBuilder 
+     * @param  \SaintSystems\OData\Query\Builder 
      * @param  array  $orders
      * @return array
      */
-    protected function compileOrdersToArray(QueryBuilder $query, $orders)
+    protected function compileOrdersToArray(Builder $query, $orders)
     {
         return array_map(function ($order) {
             return ! isset($order['sql'])
@@ -247,11 +247,11 @@ class Grammar
     /**
      * Compile the "$top" portions of the query.
      *
-     * @param  \SaintSystems\OData\QueryBuilder   $query
+     * @param  \SaintSystems\OData\Query\Builder   $query
      * @param  int  $take
      * @return string
      */
-    protected function compileTake(QueryBuilder $query, $take)
+    protected function compileTake(Builder $query, $take)
     {
         // If we have an entity key $top is redundant and invalid, so bail
         if (! empty($query->entityKey)) {
@@ -263,11 +263,11 @@ class Grammar
     /**
      * Compile the "$skip" portions of the query.
      *
-     * @param  \SaintSystems\OData\QueryBuilder   $query
+     * @param  \SaintSystems\OData\Query\Builder   $query
      * @param  int  $skip
      * @return string
      */
-    protected function compileSkip(QueryBuilder $query, $skip)
+    protected function compileSkip(Builder $query, $skip)
     {
         return '$skip='.(int) $skip;
     }
