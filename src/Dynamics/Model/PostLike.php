@@ -14,7 +14,7 @@
 */
 namespace Microsoft\Dynamics\Model;
 
-use Microsoft\OData\Entity;
+use SaintSystems\OData\Entity;
 
 /**
 * PostLike class

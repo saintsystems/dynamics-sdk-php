@@ -1,13 +1,13 @@
 <?php
 
-namespace Microsoft\OData;
+namespace SaintSystems\OData;
 
 class Processor
 {
     /**
      * Process the results of a "select" query.
      *
-     * @param  \Microsoft\OData\QueryBuilder  $query
+     * @param  \SaintSystems\OData\QueryBuilder  $query
      * @param  array  $results
      * @return array
      */
@@ -19,7 +19,7 @@ class Processor
     /**
      * Process an "insert get ID" query.
      *
-     * @param  \Microsoft\OData\QueryBuilder  $query
+     * @param  \SaintSystems\OData\QueryBuilder  $query
      * @param  string  $sql
      * @param  array   $values
      * @param  string  $sequence

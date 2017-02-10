@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\OData;
+namespace SaintSystems\OData;
 
 /**
  * The base request class.
@@ -26,10 +26,10 @@ class ODataRequest implements IODataRequest
     {
         $this->method = $method;
         $this->client = $client;
-        $this->headers = [];
+        $this->headers = $this->getDefaultHeaders();
         $this->queryOptions = [];
 
-        $this->requestUrl = $this->initializeUrl($requestUrl);
+        $this->requestUrl = $requestUrl;//$this->initializeUrl($requestUrl);
 
         $this->returnType = $returnType;
 
@@ -94,6 +94,25 @@ class ODataRequest implements IODataRequest
     public function getQueryOptions()
     {
         return $this->queryOptions;
+    }
+
+    /**
+    * Get a list of headers for the request
+    *
+    * @return array The headers for the request
+    */
+    private function getDefaultHeaders()
+    {
+        $headers = [
+            RequestHeader::HOST => $this->client->getBaseUrl(),
+            RequestHeader::CONTENT_TYPE => 'application/json',
+            RequestHeader::ODATA_MAX_VERSION => Constants::MAX_ODATA_VERSION,
+            RequestHeader::ODATA_VERSION => Constants::ODATA_VERSION,
+            RequestHeader::PREFER => Constants::ODATA_MAX_PAGE_SIZE_DEFAULT,
+            'SdkVersion' => 'dynamics-sdk-php-' . Constants::SDK_VERSION,
+            //RequestHeader::AUTHORIZATION => 'Bearer ' . $this->accessToken
+        ];
+        return $headers;
     }
 
     /**

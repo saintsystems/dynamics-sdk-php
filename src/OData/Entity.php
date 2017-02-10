@@ -6,13 +6,12 @@
 * PHP version 7
 *
 * @category  Library
-* @package   Microsoft.OData
+* @package   SaintSystems.OData
 * @copyright 2017 Saint Systems, LLC
 * @license   https://opensource.org/licenses/MIT MIT License
 * @version   GIT: 0.1.0
-* @link      https://www.microsoft.com/en-us/dynamics365/
 */
-namespace Microsoft\OData;
+namespace SaintSystems\OData;
 
 // use Closure;
 // use Exception;
@@ -27,11 +26,10 @@ use Illuminate\Support\Str;
 /**
 * Entity class
 *
-* @package   Microsoft.OData
+* @package   SaintSystems.OData
 * @copyright 2017 Saint Systems, LLC
 * @license   https://opensource.org/licenses/MIT MIT License
 * @version   Release: 0.1.0
-* @link     https://www.microsoft.com/en-us/dynamics365/
 */
 class Entity implements ArrayAccess
 {

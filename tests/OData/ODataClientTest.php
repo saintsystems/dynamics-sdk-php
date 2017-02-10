@@ -1,11 +1,11 @@
 <?php
 
-namespace Microsoft\OData\Tests;
+namespace SaintSystems\OData\Tests;
 
 use PHPUnit\Framework\TestCase;
 use Microsoft\Dynamics\Core\Log;
 
-use Microsoft\OData\ODataClient;
+use SaintSystems\OData\ODataClient;
 
 class ODataClientTest extends TestCase
 {

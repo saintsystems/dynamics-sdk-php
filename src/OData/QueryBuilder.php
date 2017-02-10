@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\OData;
+namespace SaintSystems\OData;
 
 use Closure;
 use RuntimeException;
@@ -132,9 +132,9 @@ class QueryBuilder
     /**
      * Create a new query builder instance.
      *
-     * @param  \Microsoft\OData\IODataClient  $client
-     * @param  \Microsoft\OData\Grammar  $grammar
-     * @param  \Microsoft\OData\Processor  $processor
+     * @param  \SaintSystems\OData\IODataClient  $client
+     * @param  \SaintSystems\OData\Grammar  $grammar
+     * @param  \SaintSystems\OData\Processor  $processor
      * @return void
      */
     public function __construct(IODataClient $client,
@@ -298,7 +298,7 @@ class QueryBuilder
      * Set the "$top" value of the query.
      *
      * @param  int  $value
-     * @return \Microsoft\OData\QueryBuilder|static
+     * @return \SaintSystems\OData\QueryBuilder|static
      */
     public function take($value)
     {
@@ -342,7 +342,7 @@ class QueryBuilder
     /**
      * Get a new instance of the query builder.
      *
-     * @return \Microsoft\OData\QueryBuilder
+     * @return \SaintSystems\OData\QueryBuilder
      */
     public function newQuery()
     {

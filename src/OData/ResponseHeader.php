@@ -1,8 +1,6 @@
 <?php
 
-namespace Microsoft\OData;
-
-use Microsoft\Core\Enum;
+namespace SaintSystems\OData;
 
 class ResponseHeader extends Enum
 {

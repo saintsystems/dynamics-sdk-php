@@ -1,24 +1,32 @@
 <?php
 
-namespace Microsoft\OData;
-
-use Microsoft\Core\Enum;
+namespace SaintSystems\OData;
 
 class RequestHeader extends Enum
 {
-	const ACCEPT = 'Accept';
+    const ACCEPT = 'Accept';
 
-	const ODATA_VERSION = 'OData-Version';
+    const AUTHORIZATION = 'Authorization';
 
-	const ODATA_MAX_VERSION = 'OData-MaxVersion';
+    const CACHE_CONTROL = 'Cache-Control';
 
-    const PREFER = 'Prefer';
+    const CONTENT_TYPE = 'Content-Type';
+
+    const HOST = 'Host';
 
     const IF_MATCH = 'If-Match';
 
     const IF_NONE_MATCH = 'If-None-Match';
 
+    const ODATA_VERSION = 'OData-Version';
+
+    const ODATA_MAX_VERSION = 'OData-MaxVersion';
+
     const ODATA_ISOLUTION = 'OData-Isolation';
+
+    const PREFER = 'Prefer';
+
+    const USER_AGENT = 'User-Agent';
 
     public function __toString()
     {

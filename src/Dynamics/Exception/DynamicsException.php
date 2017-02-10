@@ -17,7 +17,7 @@
 
 namespace Microsoft\Dynamics\Exception;
 
-use Microsoft\OData\ApplicationException;
+use SaintSystems\OData\ApplicationException;
 
 /**
  * Class DynamicsException

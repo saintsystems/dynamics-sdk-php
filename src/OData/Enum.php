@@ -8,21 +8,19 @@
 * PHP version 7
 *
 * @category  Library
-* @package   Microsoft.OData
+* @package   SaintSystems.OData
 * @copyright 2017 Saint Systems, LLC
 * @license   https://opensource.org/licenses/MIT MIT License
 * @version   GIT: 0.1.0
-* @link      https://www.microsoft.com/en-us/dynamics365/
 */
-namespace Microsoft\OData;
+namespace SaintSystems\OData;
 
 /**
  * Class Enum
  *
  * @category Library
- * @package  Microsoft.OData
+ * @package  SaintSystems.OData
  * @license  https://opensource.org/licenses/MIT MIT License
- * @link     https://www.microsoft.com/en-us/dynamics365/
  */
 abstract class Enum
 {

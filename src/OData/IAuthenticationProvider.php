@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\OData;
+namespace SaintSystems\OData;
 
 /**
  * Interface for authenticating requests.

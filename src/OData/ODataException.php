@@ -15,7 +15,7 @@
 * @link      https://www.microsoft.com/en-us/dynamics365/
 */
 
-namespace Microsoft\OData;
+namespace SaintSystems\OData;
 
 use Exception;
 

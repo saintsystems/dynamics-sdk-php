@@ -1,12 +1,12 @@
 <?php
 
-namespace Microsoft\OData\Tests;
+namespace SaintSystems\OData\Tests;
 
 use PHPUnit\Framework\TestCase;
 use Microsoft\Dynamics\Core\Log;
 
-use Microsoft\OData\ODataClient;
-use Microsoft\OData\QueryBuilder;
+use SaintSystems\OData\ODataClient;
+use SaintSystems\OData\QueryBuilder;
 
 class QueryBuilderTest extends TestCase
 {
@@ -49,6 +49,18 @@ class QueryBuilderTest extends TestCase
         $this->assertEquals($expected, $actual);
 
         $request = $builder->toRequest();
+        $this->assertEquals($expected, $request);
+    }
+
+    public function testEntitySetGet()
+    {
+        $builder = $this->getBuilder();
+
+        $entitySet = 'People';
+
+        $people = $builder->entitySet($entitySet)->get();
+
+        dd($people);
         $this->assertEquals($expected, $request);
     }
 
@@ -138,20 +150,6 @@ class QueryBuilderTest extends TestCase
 
         $expected = $take;
         $actual = $this->readAttribute($builder, 'take');
-
-        $this->assertEquals($expected, $actual);
-    }
-
-    public function testSkip()
-    {
-        $builder = $this->getBuilder();
-
-        $skip = 5;
-
-        $builder->skip($skip);
-
-        $expected = $skip;
-        $actual = $this->readAttribute($builder, 'skip');
 
         $this->assertEquals($expected, $actual);
     }

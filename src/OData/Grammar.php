@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\OData;
+namespace SaintSystems\OData;
 
 class Grammar
 {
@@ -35,7 +35,7 @@ class Grammar
     /**
      * Compile a select query into OData Uri
      *
-     * @param  \Microsoft\OData\QueryBuilder  $query
+     * @param  \SaintSystems\OData\QueryBuilder  $query
      * @return string
      */
     public function compileSelect(QueryBuilder $query)
@@ -64,7 +64,7 @@ class Grammar
     /**
      * Compile the components necessary for a select clause.
      *
-     * @param  \Microsoft\OData\QueryBuilder  $query
+     * @param  \SaintSystems\OData\QueryBuilder  $query
      * @return array
      */
     protected function compileComponents(QueryBuilder $query)
@@ -88,7 +88,7 @@ class Grammar
     /**
      * Compile the "from" portion of the query.
      *
-     * @param  \Microsoft\OData\QueryBuilder  $query
+     * @param  \SaintSystems\OData\QueryBuilder  $query
      * @param  string  $entitySet
      * @return string
      */
@@ -100,7 +100,7 @@ class Grammar
     /**
      * Compile the entity key portion of the query.
      *
-     * @param  \Microsoft\OData\QueryBuilder  $query
+     * @param  \SaintSystems\OData\QueryBuilder  $query
      * @param  string  $entityKey
      * @return string
      */
@@ -126,7 +126,7 @@ class Grammar
     /**
      * Compile an aggregated select clause.
      *
-     * @param  \Microsoft\OData\QueryBuilder  $query
+     * @param  \SaintSystems\OData\QueryBuilder  $query
      * @param  array  $aggregate
      * @return string
      */
@@ -139,7 +139,7 @@ class Grammar
     /**
      * Compile the "$select=" portion of the OData query.
      *
-     * @param  \Microsoft\OData\QueryBuilder  $query
+     * @param  \SaintSystems\OData\QueryBuilder  $query
      * @param  array  $properties
      * @return string|null
      */
@@ -163,7 +163,7 @@ class Grammar
     /**
      * Compile the "where" portions of the query.
      *
-     * @param  \Microsoft\OData\QueryBuilder  $query
+     * @param  \SaintSystems\OData\QueryBuilder  $query
      * @return string
      */
     protected function compileWheres(QueryBuilder $query)
@@ -188,7 +188,7 @@ class Grammar
     /**
      * Get an array of all the where clauses for the query.
      *
-     * @param  \Microsoft\OData\QueryBuilder  $query
+     * @param  \SaintSystems\OData\QueryBuilder  $query
      * @return array
      */
     protected function compileWheresToArray($query)
@@ -201,7 +201,7 @@ class Grammar
     /**
      * Format the where clause statements into one string.
      *
-     * @param  \Microsoft\OData\QueryBuilder  $query
+     * @param  \SaintSystems\OData\QueryBuilder  $query
      * @param  array  $sql
      * @return string
      */
@@ -215,7 +215,7 @@ class Grammar
     /**
      * Compile the "order by" portions of the query.
      *
-     * @param  \Microsoft\OData\QueryBuilder   $query
+     * @param  \SaintSystems\OData\QueryBuilder   $query
      * @param  array  $orders
      * @return string
      */
@@ -231,7 +231,7 @@ class Grammar
     /**
      * Compile the query orders to an array.
      *
-     * @param  \Microsoft\OData\QueryBuilder 
+     * @param  \SaintSystems\OData\QueryBuilder 
      * @param  array  $orders
      * @return array
      */
@@ -247,7 +247,7 @@ class Grammar
     /**
      * Compile the "$top" portions of the query.
      *
-     * @param  \Microsoft\OData\QueryBuilder   $query
+     * @param  \SaintSystems\OData\QueryBuilder   $query
      * @param  int  $take
      * @return string
      */
@@ -263,7 +263,7 @@ class Grammar
     /**
      * Compile the "$skip" portions of the query.
      *
-     * @param  \Microsoft\OData\QueryBuilder   $query
+     * @param  \SaintSystems\OData\QueryBuilder   $query
      * @param  int  $skip
      * @return string
      */

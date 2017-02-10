@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use Microsoft\OData;
+use SaintSystems\OData;
 use Microsoft\Dynamics\Model;
 
 class ModelTest extends TestCase

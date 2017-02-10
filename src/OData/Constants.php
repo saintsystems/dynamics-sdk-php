@@ -8,20 +8,19 @@
 * PHP version 7
 *
 * @category  Library
-* @package   Microsoft.OData
+* @package   SaintSystems.OData
 * @copyright 2017 Saint Systems, LLC
 * @license   https://opensource.org/licenses/MIT MIT License
 * @version   GIT: 0.1.0
 * @link      https://www.microsoft.com/en-us/dynamics365/
 */
 
-namespace Microsoft\OData;
+namespace SaintSystems\OData;
 
 class Constants
 {
     // ODATA Versions to be used when accessing the Web API (see: https://msdn.microsoft.com/en-us/library/gg334391.aspx)
-    const MAX_ODATA_VERSION_HEADER = "OData-MaxVersion";
-    const ODATA_VERSION_HEADER = "OData-Version";
+    const SDK_VERSION = "0.1.0";
 
     const MAX_ODATA_VERSION = "4.0";
     const ODATA_VERSION = "4.0";

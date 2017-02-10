@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\OData;
+namespace SaintSystems\OData;
 
 interface IODataClient
 {
@@ -26,14 +26,14 @@ interface IODataClient
      * Begin a fluent query against an OData service
      *
      * @param  string  $entitySet
-     * @return \Microsoft\OData\QueryBuilder
+     * @return \SaintSystems\OData\QueryBuilder
      */
     public function entitySet(string $entitySet);
 
     /**
      * Get a new query builder instance.
      *
-     * @return \Microsoft\OData\QueryBuilder
+     * @return \SaintSystems\OData\QueryBuilder
      */
     public function query();
 }

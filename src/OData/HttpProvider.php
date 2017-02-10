@@ -1,6 +1,6 @@
 <?php
 
-namespace Microsoft\OData;
+namespace SaintSystems\OData;
 
 use GuzzleHttp\Client;
 
@@ -23,9 +23,11 @@ class HttpProvider implements IHttpProvider
     /**
      * Creates a new HttpProvider
      */
-    public function __construct()
+    public function __construct(IODataClient $client)
     {
-        $this->http = new Client();
+        $this->http = new Client([
+                'base_uri' => $client->getBaseUrl()
+            ]);
         $this->timeout = 0;
     }
 
@@ -64,17 +66,29 @@ class HttpProvider implements IHttpProvider
     public function send(HttpRequestMessage $request, $returnType = null)
     {
         $returnType = is_null($returnType) ? Entity::class : $returnType;
+         
+        dd($request->headers);
 
-        $result = $this->http->request(
-            $request->method->value(), 
-            $request->requestUri, 
-            [
-                'headers' => $request->headers,
-                'body' => $request->content,
-                'stream' =>  $request->returnsStream,
-                'timeout' => $this->timeout
-            ]
-        );
+        try {
+            $result = $this->http->request(
+                $request->method, 
+                $request->requestUri, 
+                [
+                    'headers' => $request->headers,
+                    //'body' => $request->content,
+                    //'stream' =>  $request->returnsStream,
+                    'allow_redirects' => true,
+                    'timeout' => $this->timeout,
+                    'http_errors' => true
+                ]
+            );
+
+        } catch (Exception $e) {
+
+            var_dump($e->getResponse()->getBody()->getContent());
+            \Microsoft\Dynamics\Core\Log::get_instance()->info(print_r($e, true));
+            throw $e;
+        }
 
         //Send back the bare response
         if ($request->returnsStream) {
