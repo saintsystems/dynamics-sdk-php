@@ -32,7 +32,7 @@ interface IODataRequest
     /// <summary>
     /// Gets the <see cref="QueryOption"/> collection for the request.
     /// </summary>
-    public function getQueryOptions();
+    //public function getQueryOptions();
 
     /// <summary>
     /// Gets the <see cref="HttpRequestMessage"/> representation of the request.

@@ -15,6 +15,8 @@
 */
 namespace SaintSystems\OData\Core;
 
+use SaintSystems\OData\Exception\ApplicationException;
+
 /**
  * Class Enum
  *

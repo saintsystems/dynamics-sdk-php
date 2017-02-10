@@ -6,7 +6,7 @@ interface IODataClient
 {
     /**
      * Gets the IAuthenticationProvider for authenticating HTTP requests.
-     * @var \Microsoft\Core\Http\IAuthenticationProvider
+     * @var \SaintSystems\OData\IAuthenticationProvider
      */
     public function getAuthenticationProvider();
 
@@ -26,14 +26,14 @@ interface IODataClient
      * Begin a fluent query against an OData service
      *
      * @param  string  $entitySet
-     * @return \SaintSystems\OData\QueryBuilder
+     * @return \SaintSystems\OData\Query\Builder
      */
     public function entitySet($entitySet);
 
     /**
      * Get a new query builder instance.
      *
-     * @return \SaintSystems\OData\QueryBuilder
+     * @return \SaintSystems\OData\Query\Builder
      */
     public function query();
 }

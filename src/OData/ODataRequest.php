@@ -2,98 +2,286 @@
 
 namespace SaintSystems\OData;
 
+use SaintSystems\OData\Exception\ODataException;
+
 /**
  * The base request class.
  */
 class ODataRequest implements IODataRequest
 {
-    protected $sdkVersionHeaderName;
-    protected $sdkVersionHeaderValue;
+    /**
+    * The URL for the request
+    *
+    * @var string
+    */
+    protected $requestUrl;
 
     /**
-     * Constructs a new <see cref="BaseRequest"/>.
-     *
-     * <param name="requestUrl">The URL for the request.</param>
-     * <param name="client">The <see cref="IBaseClient"/> for handling requests.</param>
-     * <param name="options">The header and query options for the request.</param>
+    * The Guzzle client used to make the HTTP request
+    *
+    * @var Client
+    */
+    protected $http;
+
+    /**
+    * An array of headers to send with the request
+    *
+    * @var array(string => string)
+    */
+    protected $headers;
+
+    /**
+    * The body of the request (optional)
+    *
+    * @var string
+    */
+    protected $requestBody;
+
+    /**
+    * The type of request to make ("GET", "POST", etc.)
+    *
+    * @var object
+    */
+    protected $method;
+
+    /**
+    * True if the response should be returned as
+    * a stream
+    *
+    * @var bool
+    */
+    protected $returnsStream;
+
+    /**
+    * The return type to cast the response as
+    *
+    * @var object
+    */
+    protected $returnType;
+
+    /**
+    * The timeout, in seconds
+    *
+    * @var string
+    */
+    protected $timeout;
+
+    /**
+     * Constructs a new ODataRequest object
+     * @param string $method            The HTTP method to use, e.g. "GET" or "POST"
+     * @param string $requestUrl        The URL for the OData request
+     * @param IODataClient $client      The ODataClient used to make the request
+     * @param [type]       $returnType  Optional return type for the OData request (defaults to Entity)
      */
     public function __construct(
-        string $requestUrl,
-        string $method,
+        $method,
+        $requestUrl,
         IODataClient $client,
-        string $returnType = null,
-        array $options = null)
+        $returnType = null)
     {
         $this->method = $method;
+        $this->requestUrl = $requestUrl;
         $this->client = $client;
-        $this->headers = $this->getDefaultHeaders();
-        $this->queryOptions = [];
+        $this->setReturnType($returnType);
 
-        $this->requestUrl = $requestUrl;//$this->initializeUrl($requestUrl);
-
-        $this->returnType = $returnType;
-
-        //$this->sdkVersionHeaderName = CoreConstants.Headers.SdkVersionHeaderName;
-        //$this->SdkVersionHeaderPrefix = "Graph";
-
-        if ($options != null)
-        {
-            $headerOptions = array_filter($options, function($item) {
-                return is_a($item, class_basename(HeaderOption::class));
-            });
-            if ($headerOptions != null)
-            {
-                $this->headers[] = $headerOptions;
-            }
-
-            $queryOptions = array_filter($options, function($item) {
-                return is_a($item, class_basename(QueryOption::class));
-            });
-            if ($queryOptions != null)
-            {
-                $this->queryOptions[] = $queryOptions;
-            }
+        if (empty($this->requestUrl)) {
+            throw new ODataException(Constants::REQUEST_URL_MISSING);
         }
+        $this->timeout = 0;
+        $this->headers = $this->getDefaultHeaders();
     }
 
     /**
-     * Gets or sets the content type for the request.
-     */
-    public $contentType;
-
-    /**
-     * Gets the <see cref="HeaderOption"/> collection for the request.
-     */
-    public $headers;
-
-    /**
-     * Gets the <see cref="IGraphServiceClient"/> for handling requests.
-     */
-    public $client;
-
-    /**
-     * Gets or sets the HTTP method string for the request.
-     */
-    public $method;
-
-    /**
-     * Gets the <see cref="QueryOption"/> collection for the request.
-     */
-    public $queryOptions;
-
-    /**
-     * Gets the URL for the request, without query string.
-     */
-    public $requestUrl;
-    
-    /**
-     * Gets or sets the telemetry header prefix for requests.
-     */
-    protected $sdkVersionHeaderPrefix;
-
-    public function getQueryOptions()
+    * Sets the return type of the response object
+    *
+    * @param mixed $returnClass The object class to use
+    *
+    * @return ODataRequest object
+    */
+    public function setReturnType($returnClass)
     {
-        return $this->queryOptions;
+        if (empty($returnClass)) return $this;
+        $this->returnType = $returnClass;
+        if (strcasecmp($this->returnType, 'stream') == 0) {
+            $this->returnsStream  = true;
+        } else {
+            $this->returnsStream = false;
+        }
+        return $this;
+    }
+
+    /**
+    * Adds custom headers to the request
+    *
+    * @param array $headers An array of custom headers
+    *
+    * @return ODataRequest object
+    */
+    public function addHeaders($headers)
+    {
+        $this->headers = array_merge($this->headers, $headers);
+        return $this;
+    }
+
+    /**
+    * Get the request headers
+    *
+    * @return array of headers
+    */
+    public function getHeaders()
+    {
+        return $this->headers;
+    }
+
+    /**
+    * Attach a body to the request. Will JSON encode 
+    * any SaintSystems\OData\Entity objects as well as arrays
+    *
+    * @param mixed $obj The object to include in the request
+    *
+    * @return ODataRequest object
+    */
+    public function attachBody($obj)
+    {
+        // Attach streams & JSON automatically
+        if (is_string($obj) || is_a($obj, 'GuzzleHttp\\Psr7\\Stream')) {
+            $this->requestBody = $obj;
+        } 
+        // JSON-encode the model object's property dictionary
+        else if (method_exists($obj, 'getProperties')) {
+            $class = get_class($obj);
+            $class = explode("\\", $class);
+            $model = strtolower(end($class));
+            
+            $body = $this->flattenDictionary($obj->getProperties());
+            $this->requestBody = "{" . $model . ":" . json_encode($body) . "}";
+        } 
+        // By default, JSON-encode (i.e. arrays)
+        else {
+            $this->requestBody = json_encode($obj);
+        }
+        return $this;
+    }
+
+    /**
+    * Get the body of the request
+    *
+    * @return mixed request body of any type
+    */
+    public function getBody()
+    {
+        return $this->requestBody;
+    }
+
+    /**
+    * Sets the timeout limit of the HTTP request
+    *
+    * @param string $timeout The timeout in ms
+    * 
+    * @return ODataRequest object
+    */
+    public function setTimeout($timeout)
+    {
+        $this->timeout = $timeout;
+        return $this;
+    }
+
+    /**
+     * Executes the HTTP request using Guzzle
+     *
+     * @throws ODataException if response is invalid
+     *
+     * @return mixed object or array of objects
+     *         of class $returnType
+     */
+    public function execute()
+    {
+        if (empty($this->requestUrl))
+        {
+            throw new ODataException(Constants::REQUEST_URL_MISSING);
+        }
+
+        $request = $this->getHttpRequestMessage();
+        $request->body = $this->requestBody;
+        
+        $this->authenticateRequest($request);
+
+        $result = $this->client->getHttpProvider()->send($request);
+
+        //Send back the bare response
+        if ($this->returnsStream) {
+            return $result;
+        }
+
+        // Wrap response in ODataResponse layer
+        try {
+            $response = new ODataResponse(
+                $this, 
+                $result->getBody()->getContents(), 
+                $result->getStatusCode(), 
+                $result->getHeaders()
+            );
+        } catch (DynamicsException $e) {
+            throw new ODataException(Constants::UNABLE_TO_PARSE_RESPONSE);
+        }
+
+        // If no return type is specified, return DynamicsResponse
+        $returnObj = $response;
+
+        $returnType = is_null($this->returnType) ? Entity::class : $this->returnType;
+
+        if ($returnType) {
+            $returnObj = $response->getResponseAsObject($returnType);
+        }
+        return $returnObj; 
+    }
+
+    /**
+    * Executes the HTTP request asynchronously using Guzzle
+    *
+    * @param mixed $client The Http client to use in the request
+    *
+    * @return mixed object or array of objects
+    *         of class $returnType
+    */
+    public function executeAsync($client = null)
+    {
+        if (is_null($client)) {
+            $client = $this->createHttpClient();
+        }
+
+        $promise = $client->requestAsync(
+            $this->requestType,
+            $this->getRequestUrl(),
+            [
+                'body' => $this->requestBody,
+                'stream' => $this->returnsStream,
+                'timeout' => $this->timeout
+            ]
+        )->then(
+            // On success, return the result/response
+            function ($result) {
+                $response = new ODataResponse(
+                    $this, 
+                    $result->getBody()->getContents(), 
+                    $result->getStatusCode(), 
+                    $result->getHeaders()
+                );
+                $returnObject = $response;
+                if ($this->returnType) {
+                    $returnObject = $response->getResponseAsObject(
+                        $this->returnType
+                    );
+                }
+                return $returnObject;
+            },
+            // On fail, log the error and return null
+            function ($reason) {
+                trigger_error("Async call failed: " . $reason->getMessage());
+                return null;
+            }
+        );
+        return $promise;
     }
 
     /**
@@ -116,123 +304,26 @@ class ODataRequest implements IODataRequest
     }
 
     /**
-     * Sends the request.
-     *
-     * <typeparam name="T">The expected response object type for deserialization.</typeparam>
-     * <param name="serializableObject">The serializable object to send.</param>
-     * <param name="cancellationToken">The <see cref="CancellationToken"/> for the request.</param>
-     * <param name="completionOption">The <see cref="HttpCompletionOption"/> to pass to the <see cref="IHttpProvider"/> on send.</param>
-     * <returns>The <see cref="HttpResponseMessage"/> object.</returns>
-     */
-    public function send($serializableObject = null)
-    {
-        if (empty($this->requestUrl))
-        {
-            throw new ODataException(Constants::REQUEST_URL_MISSING);
-        }
-
-        // if ($this->client->getAuthenticationProvider() == null)
-        // {
-        //     throw new ODataException('AuthenticationProviderMissing');
-        // }
-
-        $request = $this->getHttpRequestMessage();
-        
-        $this->authenticateRequest($request);
-
-        // Attach streams & JSON automatically
-        if (is_string($serializableObject) || is_a($serializableObject, 'GuzzleHttp\\Psr7\\Stream')) {
-            $request->content = $serializableObject;
-        } // JSON-encode the model object's property dictionary
-        else if (method_exists($serializableObject, 'getProperties')) {
-            $class = get_class($serializableObject);
-            $class = explode("\\", $class);
-            $model = strtolower(end($class));
-            
-            $body = $this->flattenDictionary($serializableObject->getProperties());
-            $request->content = "{" . $model . ":" . json_encode($body) . "}";
-        } 
-        // By default, JSON-encode (i.e. arrays)
-        else {
-            $request->content = json_encode($serializableObject);
-        }
-
-        // if ($serializableObject != null)
-        // {
-        //     var inputStream = serializableObject as Stream;
-
-        //     if (inputStream != null)
-        //     {
-        //         request->content = new StreamContent($inputStream);
-        //     }
-        //     else
-        //     {
-        //         $request->content = new StringContent($this->Client.HttpProvider.Serializer.SerializeObject(serializableObject));
-        //     }
-
-        //     if (!empty($this->contentType))
-        //     {
-        //         $request.Content.Headers.ContentType = new MediaTypeHeaderValue($this->ContentType);
-        //     }
-        // }
-
-        return $this->client->getHttpProvider()->send($request, $this->returnType);
-
-    }
-
-    /**
      * Gets the <see cref="HttpRequestMessage"/> representation of the request.
      *
      * <returns>The <see cref="HttpRequestMessage"/> representation of the request.</returns>
      */
     public function getHttpRequestMessage()
     {
-        $queryString = $this->buildQueryString();
-        $request = new HttpRequestMessage(new HttpMethod($this->method), $this->requestUrl.$queryString);
+        $request = new HttpRequestMessage(new HttpMethod($this->method), $this->requestUrl);
 
         $this->addHeadersToRequest($request);
 
         return $request;
     }
 
-    /// <summary>
-    /// Builds the query string for the request from the query option collection.
-    /// </summary>
-    /// <returns>The constructed query string.</returns>
-    private function buildQueryString()
-    {
-        $queryOptions = $this->getQueryOptions();
-        if ($queryOptions != null)
-        {
-            return '?' . http_build_query($queryOptions, null, '&');
-        }
-
-        return null;
-    }
-
     /**
      * Adds all of the headers from the header collection to the request.
-     * @param \Microsoft\Core\Http\HttpRequestMessage $request The HttpRequestMessage representation of the request.
+     * @param \SaintSystems\OData\HttpRequestMessage $request The HttpRequestMessage representation of the request.
      */
     private function addHeadersToRequest(HttpRequestMessage $request)
     {
         $request->headers = array_merge($this->headers, $request->headers);
-
-        // if (string.IsNullOrEmpty($this->sdkVersionHeaderValue))
-        // {
-        //     var assemblyVersion = $this->GetType().GetTypeInfo().Assembly.GetName().Version;
-        //     $this->sdkVersionHeaderValue = string.Format(
-        //         CoreConstants.Headers.SdkVersionHeaderValueFormatString,
-        //         $this->SdkVersionHeaderPrefix,
-        //         assemblyVersion.Major,
-        //         assemblyVersion.Minor,
-        //         assemblyVersion.Build);
-        // }
-
-        // Append SDK version header for telemetry
-        // request.Headers.Add(
-        //     $this->sdkVersionHeaderName,
-        //     $this->sdkVersionHeaderValue);
     }
 
     /**
@@ -247,50 +338,6 @@ class ODataRequest implements IODataRequest
         if ( ! is_null($authenticationProvider) && is_callable($authenticationProvider)) {
             return $authenticationProvider($request);
         }
-    }
-
-    /**
-     * Initializes the request URL for the request, breaking it into query options and base URL.
-     *
-     * <param name="requestUrl">The request URL.</param>
-     * <returns>The request URL minus query string.</returns>
-     */
-    private function initializeUrl($requestUrl)
-    {
-        if (empty($requestUrl))
-        {
-            throw new ODataException(Constants::BASE_URL_MISSING);
-        }
-
-        $uri = new Uri($requestUrl);
-        
-        if (!empty($uri->query))
-        {
-            $queryString = $uri->query;
-
-            $queryOptions = [];
-
-            $queryStringParts = explode('&', $queryString);
-
-            $queryOptions = array_map(function($item) {
-                // We want to split on the first occurrence of = since there are scenarios where a query option can 
-                // have 'sub-query' options on navigation properties for $expand scenarios. This way we can properly
-                // split the query option name/value into the QueryOption object. Take this for example:
-                // $expand=extensions($filter=Id%20eq%20'SMB'%20)
-                // We want to get '$expand' as the name and 'extensions($filter=Id%20eq%20'SMB'%20)' as the value
-                // for QueryOption object.
-                // OData URL conventions 5.1.2 System Query Option $expand
-                // http://docs.oasis-open.org/odata/odata/v4.0/errata03/os/complete/part2-url-conventions/odata-v4.0-errata03-os-part2-url-conventions-complete.html#_Toc453752359
-                $segments = explode('=', $item, 2);
-                return new QueryOption($segments[0], count($segments) > 1 ? $segments[1] : '');
-            }, $queryStringParts);
-
-            $this->queryOptions = array_merge($this->queryOptions, $queryOptions);
-
-        }
-
-        //return new UriBuilder($uri) { Query = '' }.ToString();
-        return http_build_url($uri, ['query' => '']);
     }
 
     /**

@@ -181,7 +181,7 @@ class Builder
      * @param  string  $entitySet
      * @return $this
      */
-    public function entitySet(string $entitySet)
+    public function entitySet($entitySet)
     {
         $this->entitySet = $entitySet;
 
@@ -194,7 +194,7 @@ class Builder
      * @param  string  $entityKey
      * @return $this
      */
-    public function entityKey(string $entityKey)
+    public function entityKey($entityKey)
     {
         $this->entityKey = $entityKey;
 

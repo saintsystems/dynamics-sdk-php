@@ -5,10 +5,10 @@ namespace SaintSystems\OData;
 class HttpRequestMessage
 {
     /**
-     * Gets or sets the contents of the HTTP message.
+     * Gets or sets the body of the HTTP message.
      * @var string
      */
-    public $content;
+    public $body;
 
     /**
      * Gets or sets whether this HTTP message returns a stream

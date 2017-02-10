@@ -54,7 +54,7 @@ class ODataClient implements IODataClient
     {
         $this->setBaseUrl($baseUrl);
         $this->authenticationProvider = $authenticationProvider;
-        $this->httpProvider = $httpProvider ?: new HttpProvider($this);
+        $this->httpProvider = $httpProvider ?: new GuzzleHttpProvider();
 
         // We need to initialize a query grammar and the query post processors
         // which are both very important parts of the OData abstractions
@@ -177,7 +177,7 @@ class ODataClient implements IODataClient
      */
     public function get($requestUri, $bindings = [])
     {
-        return $this->request($requestUri, HttpMethod::GET);
+        return $this->request(HttpMethod::GET, $requestUri);
     }
 
     /**
@@ -189,10 +189,10 @@ class ODataClient implements IODataClient
      *
      * @throws \SaintSystems\OData\ODataException
      */
-    public function request($requestUri, $method)
+    public function request($method, $requestUri)
     {
-        $request = new ODataRequest($requestUri, $method, $this);
-        return $request->send();
+        $request = new ODataRequest($method, $this->baseUrl.$requestUri, $this);
+        return $request->execute();
     }
 
     /**
