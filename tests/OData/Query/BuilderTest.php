@@ -42,7 +42,7 @@ class BuilderTest extends TestCase
 
         $entitySet = 'People';
 
-        $builder->entitySet($entitySet);
+        $builder->from($entitySet);
 
         $expected = $entitySet;
         $actual = $this->readAttribute($builder, 'entitySet');
@@ -59,7 +59,7 @@ class BuilderTest extends TestCase
 
         $entitySet = 'People';
 
-        $people = $builder->entitySet($entitySet)->get();
+        $people = $builder->from($entitySet)->get();
 
         // dd($people);
         $this->assertTrue(is_array($people));

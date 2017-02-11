@@ -181,7 +181,7 @@ class Builder
      * @param  string  $entitySet
      * @return $this
      */
-    public function entitySet($entitySet)
+    public function from($entitySet)
     {
         $this->entitySet = $entitySet;
 
@@ -261,14 +261,14 @@ class Builder
     }
 
     /**
-     * Get a single column's value from the first result of a query.
+     * Get a single property's value from the first result of a query.
      *
      * @param  string  $column
      * @return mixed
      */
-    public function value($column)
+    public function value($property)
     {
-        $result = (array) $this->first([$column]);
+        $result = (array) $this->first([$property]);
 
         return count($result) > 0 ? reset($result) : null;
     }
@@ -390,7 +390,7 @@ class Builder
     {
         $results = $this->insert($values);
 
-        return $this->processor->processInsertGetId($this, $uri, $values, $sequence);
+        return $results->getId();
     }
 
     /**
