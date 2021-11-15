@@ -4,7 +4,7 @@
 
 [![Build Status](https://travis-ci.org/saintsystems/dynamics-sdk-php.svg?branch=master)](https://travis-ci.org/saintsystems/dynamics-sdk-php)
 
-For WordPress users, see our [Gravity Forms Dynamics 365 Add-On](https://www.saintsystems.com/products/gravity-forms-dynamics-crm-add-on/).
+For WordPress users, please see our [Gravity Forms Dynamics 365 Add-On](https://www.saintsystems.com/products/gravity-forms-dynamics-crm-add-on/).
 
 ## Install the SDK
 You can install the PHP SDK with Composer.
