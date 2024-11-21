@@ -28,6 +28,13 @@ namespace Microsoft\Dynamics\Http;
 class DynamicsResponse
 {
     /**
+    * The request
+    *
+    * @var object
+    */
+    private $request;
+    
+    /**
     * The body of the response
     *
     * @var string
